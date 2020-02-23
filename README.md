@@ -8,5 +8,7 @@
 - Direct to repo folder, open command line and run these lines
 > composer dump-autoload
 > php artisan key:generate
+
 > php artisan migrate
+
 > php artisan migrate --seed
