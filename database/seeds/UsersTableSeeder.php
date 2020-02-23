@@ -17,12 +17,14 @@ class UsersTableSeeder extends Seeder
             'username'          => 'socfisystem',
             'name'              => 'Socfi System',
             'email'             => 'socfisystem@gmail.com',
-            'avatar'            => '/avatar/meeps.jpg',
+            'avatar'            => 'meeps.jpg',
             'role'              => '0',
             'password'          => Hash::make('socfi123'),
             'email_verified_at' => now(),
             'created_at'        => now(),
             'updated_at'        => now()
         ]);
+
+        factory(App\Models\User::class, 10)->create();
     }
 }
