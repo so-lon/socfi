@@ -1,11 +1,11 @@
 @extends('layouts.app', ['title' => __('User Management')])
 
 @section('content')
-    @include('layouts.headers.cards')
+    @include('users.partials.header', ['title' => __('Manage User')])
 
     <div class="container-fluid mt--7">
         <div class="row">
-            <div class="col">
+            <div class="col-xl-12 order-xl-1">
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
