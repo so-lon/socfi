@@ -32,7 +32,7 @@ Coded by www.creative-tim.com
   <link href="./assets/css/font-awesome.css" rel="stylesheet" />
   <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="./assets/css/argon-design-system.css?v=1.2.0" rel="stylesheet" />
+  <link href="./assets/css/argon-design-system.css" rel="stylesheet" />
 </head>
 
 <body class="index-page">
@@ -160,6 +160,39 @@ Coded by www.creative-tim.com
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-4">
+        <div class="form-group has-search">
+          <span class="fa fa-search form-control-feedback"></span>
+          <input type="text" class="form-control form-control-lg mt-4" placeholder="Search">
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="form-group">
+          <div class="dropdown mt-4" id="ddDestination">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownDestination" data-toggle="dropdown">
+              Destination
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button" value="0">Destination</button>
+              <button class="dropdown-item" type="button" value="1">Somewhere</button>
+              <button class="dropdown-item" type="button" value="2">Somewhere else</button>
+              <button class="dropdown-item" type="button" value="3">Somewhere else else</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-10 condition-control">
+        
+      </div>
+      <div class="col-lg-1"></div>
+    </div>
   <footer class="footer has-cards">
     <div class="container container-lg">
       <div class="row">
@@ -239,24 +272,6 @@ Coded by www.creative-tim.com
   <script src="./assets/js/plugins/moment.min.js"></script>
   <script src="./assets/js/plugins/datetimepicker.js" type="text/javascript"></script>
   <script src="./assets/js/plugins/bootstrap-datepicker.min.js"></script>
-  <!-- Control Center for Argon UI Kit: parallax effects, scripts for the example pages etc -->
-  <script>
-    function scrollToDownload() {
-
-      if ($('.section-download').length != 0) {
-        $("html, body").animate({
-          scrollTop: $('.section-download').offset().top
-        }, 1000);
-      }
-    }
-  </script>
-  <script>
-    window.TrackJS &&
-      TrackJS.install({
-        token: "ee6fab19c5a04ac1a32a645abde4613a",
-        application: "argon-design-system-pro"
-      });
-  </script>
   <script type="text/javascript">
     $(this).scroll(function () {
       $("#navbar-main").last().addClass("headroom");
@@ -270,6 +285,14 @@ Coded by www.creative-tim.com
       } else {
         // do nothing
       }
+    });
+    $(function() {
+      $(".dropdown-menu .dropdown-item").click(function(e) {
+        const tmp = $(this).parent().parent().attr('id');
+        const id = tmp.replace("dd", "dropdown");
+        $("#" + id).text($(this).text());
+        $("#" + id).val($(this).val());
+      });
     });
   </script>
 </body>
