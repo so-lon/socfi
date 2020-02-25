@@ -52,7 +52,7 @@
                                     <tr>
                                         <td>
                                             <span class="avatar avatar-sm rounded-circle">
-                                                <img src="{{ asset('img/avatar/' . $user->avatar) }}">
+                                                <img src="{{ $user->avatar }}">
                                             </span>
                                         </td>
                                         <td>{{ $user->username }}</td>

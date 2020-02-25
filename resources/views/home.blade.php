@@ -17,10 +17,9 @@ Coded by www.creative-tim.com
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <link href="./assets/img/brand/favicon.png" rel="icon" type="image/png">
   <title>
-    Argon Design System by Creative Tim
+    Socfi
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -32,17 +31,19 @@ Coded by www.creative-tim.com
   <link href="./assets/css/font-awesome.css" rel="stylesheet" />
   <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="./assets/css/argon-design-system.css?v=1.2.0" rel="stylesheet" />
-  <link href="./assets/css/styles.css" rel="stylesheet" />
+  <link href="./assets/css/argon-design-system.css" rel="stylesheet" />
 </head>
 
 <body class="index-page">
   <!-- Navbar -->
   <nav id="navbar-main" class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand mr-lg-5" href="./index.html">
+      <a class="navbar-brand mr-lg-5" href="./">
         <!-- can change to logo later -->
-        <div class="fa-4x ml-4">SFMS</div>
+        <div class="fa-3x ml-4">
+          <img src="./assets/img/brand/favicon.png">
+          SFMS
+        </div>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -52,7 +53,7 @@ Coded by www.creative-tim.com
           <div class="row">
             <div class="col-6 collapse-brand">
               <!-- can change to logo later -->
-              <div class="fa-3x">SFMS</div>
+              <div><img class="mr-2" src="./assets/img/brand/favicon.png">SFMS</div>
             </div>
             <div class="col-6 collapse-close">
               <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,43 +66,43 @@ Coded by www.creative-tim.com
         <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
           <li class="nav-item dropdown">
             <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Dropdown</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="./examples/landing.html" class="dropdown-item">Landing</a>
+              <a href="./examples/profile.html" class="dropdown-item">Profile</a>
+              <a href="./examples/login.html" class="dropdown-item">Login</a>
+              <a href="./examples/register.html" class="dropdown-item">Register</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Dropdown</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="./examples/landing.html" class="dropdown-item">Landing</a>
+              <a href="./examples/profile.html" class="dropdown-item">Profile</a>
+              <a href="./examples/login.html" class="dropdown-item">Login</a>
+              <a href="./examples/register.html" class="dropdown-item">Register</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Dropdown</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="./examples/landing.html" class="dropdown-item">Landing</a>
+              <a href="./examples/profile.html" class="dropdown-item">Profile</a>
+              <a href="./examples/login.html" class="dropdown-item">Login</a>
+              <a href="./examples/register.html" class="dropdown-item">Register</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
               <i class="ni ni-ui-04 d-lg-none"></i>
-              <span class="nav-link-inner--text">Dropdown</span>
-            </a>
-            <div class="dropdown-menu">
-              <a href="./examples/landing.html" class="dropdown-item">Landing</a>
-              <a href="./examples/profile.html" class="dropdown-item">Profile</a>
-              <a href="./examples/login.html" class="dropdown-item">Login</a>
-              <a href="./examples/register.html" class="dropdown-item">Register</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-              <i class="ni ni-collection d-lg-none"></i>
-              <span class="nav-link-inner--text">Dropdown</span>
-            </a>
-            <div class="dropdown-menu">
-              <a href="./examples/landing.html" class="dropdown-item">Landing</a>
-              <a href="./examples/profile.html" class="dropdown-item">Profile</a>
-              <a href="./examples/login.html" class="dropdown-item">Login</a>
-              <a href="./examples/register.html" class="dropdown-item">Register</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-              <i class="ni ni-collection d-lg-none"></i>
-              <span class="nav-link-inner--text">Dropdown</span>
-            </a>
-            <div class="dropdown-menu">
-              <a href="./examples/landing.html" class="dropdown-item">Landing</a>
-              <a href="./examples/profile.html" class="dropdown-item">Profile</a>
-              <a href="./examples/login.html" class="dropdown-item">Login</a>
-              <a href="./examples/register.html" class="dropdown-item">Register</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-              <i class="ni ni-collection d-lg-none"></i>
               <span class="nav-link-inner--text">Dropdown</span>
             </a>
             <div class="dropdown-menu">
@@ -137,13 +138,13 @@ Coded by www.creative-tim.com
       <div class="shape shape-primary">
       </div>
       <div class="page-header">
-        <div class="d-flex align-items-center py-lg">
-          <div class="col px-0">
-            <div class="row align-items-center">
+        <div class="container">
+          <div class="align-items-center py-lg">
+            <div class="row">
               <div class="col-lg-7">
                 <!-- Image -->
               </div>
-              <div class="col-lg-4 mb-5 mt--5">
+              <div class="col-lg-5 mb-5 mt--5">
                 <div class="card br-1 mr-4 ml-4">
                   <div class="card-title text-center font-weight-bold display-4 pt-4 pb-4 text-uppercase">
                     sumting
@@ -155,14 +156,47 @@ Coded by www.creative-tim.com
                   </div>
                 </div>
               </div>
-              <div class="col-lg-1"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control form-control-lg mt-4" placeholder="Search">
+          </div>
+        </div>
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-2">
+          <div class="form-group">
+            <div class="dropdown mt-4" id="ddSearch">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSearch" data-toggle="dropdown">
+                Sort by
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item" type="button" value="1">Rating low to high</button>
+                <button class="dropdown-item" type="button" value="2">Rating high to low</button>
+                <button class="dropdown-item" type="button" value="3">Price low to high</button>
+                <button class="dropdown-item" type="button" value="4">Price high to low</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 condition-control">
+          
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+    </div>
   <footer class="footer has-cards">
-    <div class="container container-lg">
+    <!-- <div class="container container-lg">
       <div class="row">
         <div class="col-md-6 mb-5 mb-md-0">
           <div class="card card-lift--hover shadow border-0">
@@ -179,9 +213,9 @@ Coded by www.creative-tim.com
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="container">
-      <div class="row row-grid align-items-center my-md">
+      <!-- <div class="row row-grid align-items-center my-md">
         <div class="col-lg-6">
           <h3 class="text-primary font-weight-light mb-2">Thank you for supporting us!</h3>
           <h4 class="mb-0 font-weight-light">Let's get in touch on any of these platforms.</h4>
@@ -200,27 +234,27 @@ Coded by www.creative-tim.com
             <span class="btn-inner--icon"><i class="fa fa-github"></i></span>
           </button>
         </div>
-      </div>
+      </div> -->
       <hr>
       <div class="row align-items-center justify-content-md-between">
         <div class="col-md-6">
           <div class="copyright">
-            &copy; 2020 <a href="" target="_blank">Creative Tim</a>.
+            &copy; 2020 <a href="" target="_blank">SFMS</a>.
           </div>
         </div>
         <div class="col-md-6">
           <ul class="nav nav-footer justify-content-end">
             <li class="nav-item">
-              <a href="" class="nav-link" target="_blank">Creative Tim</a>
+              <a href="" class="nav-link" target="_blank">About Us</a>
             </li>
             <li class="nav-item">
               <a href="" class="nav-link" target="_blank">About Us</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link" target="_blank">Blog</a>
+              <a href="" class="nav-link" target="_blank">About Us</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link" target="_blank">License</a>
+              <a href="" class="nav-link" target="_blank">About Us</a>
             </li>
           </ul>
         </div>
@@ -240,24 +274,6 @@ Coded by www.creative-tim.com
   <script src="./assets/js/plugins/moment.min.js"></script>
   <script src="./assets/js/plugins/datetimepicker.js" type="text/javascript"></script>
   <script src="./assets/js/plugins/bootstrap-datepicker.min.js"></script>
-  <!-- Control Center for Argon UI Kit: parallax effects, scripts for the example pages etc -->
-  <script>
-    function scrollToDownload() {
-
-      if ($('.section-download').length != 0) {
-        $("html, body").animate({
-          scrollTop: $('.section-download').offset().top
-        }, 1000);
-      }
-    }
-  </script>
-  <script>
-    window.TrackJS &&
-      TrackJS.install({
-        token: "ee6fab19c5a04ac1a32a645abde4613a",
-        application: "argon-design-system-pro"
-      });
-  </script>
   <script type="text/javascript">
     $(this).scroll(function () {
       $("#navbar-main").last().addClass("headroom");
@@ -271,6 +287,14 @@ Coded by www.creative-tim.com
       } else {
         // do nothing
       }
+    });
+    $(function() {
+      $(".dropdown-menu .dropdown-item").click(function(e) {
+        const tmp = $(this).parent().parent().attr('id');
+        const id = tmp.replace("dd", "dropdown");
+        $("#" + id).text($(this).text());
+        $("#" + id).val($(this).val());
+      });
     });
   </script>
 </body>
