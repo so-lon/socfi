@@ -33,14 +33,13 @@ Coded by www.creative-tim.com
   <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="./assets/css/argon-design-system.css?v=1.2.0" rel="stylesheet" />
-  <link href="./assets/css/styles.css" rel="stylesheet" />
 </head>
 
 <body class="index-page">
   <!-- Navbar -->
   <nav id="navbar-main" class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand mr-lg-5" href="./index.html">
+      <a class="navbar-brand mr-lg-5" href="./">
         <!-- can change to logo later -->
         <div class="fa-4x ml-4">SFMS</div>
       </a>

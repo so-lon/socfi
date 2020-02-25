@@ -4773,7 +4773,9 @@ input[type="button"].btn-block {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  /*padding: 1rem 1rem;*/
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .navbar>.container,
@@ -5171,7 +5173,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.6);
   background-clip: border-box;
   border: 0.0625rem solid rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
@@ -20466,7 +20468,11 @@ textarea[resize="horizontal"] {
 }
 
 .section-shaped .shape-primary {
-  background: linear-gradient(150deg, #281483 15%, #8f6ed5 70%, #d782d9 94%);
+  background-image: url("../img/bgs/bg-1.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .section-shaped .shape-primary :nth-child(1) {
@@ -22836,7 +22842,11 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 .headroom {
   will-change: transform;
-  background-color: inherit;
+  background: rgb(2,0,36);
+  background: linear-gradient(321deg, rgba(2,0,36,1) 0%, rgba(41,45,62,1) 0%, rgba(41,45,62,1) 100%, rgba(20,94,21,1) 100%);
+    -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
   transition: all 0.15s ease;
 }
 
