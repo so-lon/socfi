@@ -1,6 +1,6 @@
 <nav id="navbar-main" class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand mr-lg-5" href="{{ route('home') }}">
+        <a class="navbar-brand mr-lg-5" href="{{ route('index') }}">
             <div class="fa-3x ml-4">
                 <img src="{{ asset('argon') }}/img/brand/favicon.png">
                 SFMS
@@ -14,7 +14,7 @@
             <div class="navbar-collapse-header d-md-none">
                 <div class="row">
                     <div class="col-6 collapse-brand">
-                        <a class="navbar-brand mr-lg-5" href="{{ route('home') }}">
+                        <a class="navbar-brand mr-lg-5" href="{{ route('index') }}">
                             <div class="fa-3x ml-4">
                                 <img src="{{ asset('argon') }}/img/brand/favicon.png">
                                 SFMS
@@ -82,12 +82,12 @@
             </ul>
             <ul class="navbar-nav align-items-lg-center ml-lg-4">
                 <li class="nav-item d-none d-lg-block">
-                    <button type="button" href="{{ route('login') }}" class="btn btn-danger btn-round">
+                    <a href="{{ route('login') }}" class="btn btn-danger btn-round">
                         <span class="btn-inner--icon">
                             <i class="fas fa-sign-in-alt"></i>
                         </span>
                         <span class="nav-link-inner--text">&nbsp;&nbsp;Login&nbsp;&nbsp;</span>
-                    </button>
+                    </a>
                 </li>
                 <li class="nav-item d-none d-lg-block">
                     <a href="{{ route('register') }}" class="btn btn-neutral btn-icon">

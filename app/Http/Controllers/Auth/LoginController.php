@@ -55,7 +55,7 @@ class LoginController extends Controller
      *
      * @return Response
      */
-    public function handleProviderCallback($provider) 
+    public function handleProviderCallback($provider)
     {
         // Get social network's user infomation
         $user = Socialite::driver($provider)->user();
@@ -69,10 +69,10 @@ class LoginController extends Controller
             'provider'    => $provider,
             'provider_id' => $user->getId(),
         ]);
-        
+
         // Login với user vừa tạo.
         Auth::login($createdUser);
 
-        return redirect('/');
+        return redirect('index');
     }
 }
