@@ -1,7 +1,7 @@
 <nav id="navbar-main" class="navbar navbar-horizontal navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
         <a class="navbar-brand mr-lg-5" href="{{ route('index') }}">
-            <div class="fa-3x ml-4"><img src="{{ asset('argon') }}/img/brand/favicon.png">SFMS</div>
+            <img src="{{ asset('argon') }}/img/brand/logo.png">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,10 +12,7 @@
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a class="navbar-brand mr-lg-5" href="{{ route('index') }}">
-                            <div class="fa-3x ml-4">
-                                <img src="{{ asset('argon') }}/img/brand/favicon.png">
-                                SFMS
-                            </div>
+                            <img src="{{ asset('argon') }}/img/brand/logo.png">
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -78,20 +75,16 @@
                 </li>
             </ul>
             {{-- Login & Register --}}
-            <ul class="navbar-nav align-items-lg-center ml-lg-4">
+            <ul class="navbar-nav align-items-center ml-lg-auto">
                 <li class="nav-item d-none d-lg-block">
                     <a href="{{ route('login') }}" class="btn btn-danger btn-round text-uppercase">
-                        <span class="btn-inner--icon">
-                            <i class="fas fa-sign-in-alt"></i>
-                        </span>
+                        <i class="fas fa-sign-in-alt"></i>
                         <span class="nav-link-inner--text">Login</span>
                     </a>
                 </li>
                 <li class="nav-item d-none d-lg-block">
                     <a href="{{ route('register') }}" class="btn btn-neutral btn-icon text-uppercase">
-                        <span class="btn-inner--icon">
-                            <i class="fas fa-user-plus"></i>
-                        </span>
+                        <i class="fas fa-user-plus"></i>
                         <span class="nav-link-inner--text">Register</span>
                     </a>
                 </li>

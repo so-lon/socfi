@@ -3,8 +3,7 @@
 @section('content')
 
     <div class="section-xl section-hero section-shaped">
-        <div class="shape shape-primary">
-        </div>
+        <div class="shape shape-primary"></div>
         <div class="page-header">
             <div class="container">
                 <div class="align-items-center py-lg">
