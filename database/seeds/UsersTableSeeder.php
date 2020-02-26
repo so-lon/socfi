@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'username'          => 'socfisystem',
             'name'              => 'Socfi System',
             'email'             => 'socfisystem@gmail.com',
-            'avatar'            => 'meeps.jpg',
+            'avatar'            => 'img/avatar/meeps.jpg',
             'role'              => '0',
             'password'          => Hash::make('socfi123'),
             'email_verified_at' => now(),

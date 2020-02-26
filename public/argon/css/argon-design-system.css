@@ -2085,10 +2085,25 @@ pre code {
   color: #8898aa;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #cad1d7;
+  border: 2px solid #cad1d7;
   border-radius: 0.25rem;
   box-shadow: none;
-  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2182,7 +2197,7 @@ select.form-control:focus::-ms-value {
 }
 
 .form-control-lg {
-  height: calc(1.5em + 1.75rem + 2px);
+  /*height: calc(1.5em + 1.75rem + 2px);*/
   padding: 0.875rem 1rem;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -18785,7 +18800,7 @@ textarea[resize="horizontal"] {
 }
 
 .form-control-lg {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .has-success,
@@ -19484,7 +19499,7 @@ textarea[resize="horizontal"] {
 }
 
 .navbar-nav .nav-link {
-  font-size: 1.0rem;
+  font-size: 0.9rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   text-transform: normal;
