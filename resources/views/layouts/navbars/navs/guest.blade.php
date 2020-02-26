@@ -1,10 +1,7 @@
-<nav id="navbar-main" class="navbar navbar-expand-lg navbar-dark fixed-top">
+<nav id="navbar-main" class="navbar navbar-horizontal navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
         <a class="navbar-brand mr-lg-5" href="{{ route('index') }}">
-            <div class="fa-3x ml-4">
-                <img src="{{ asset('argon') }}/img/brand/favicon.png">
-                SFMS
-            </div>
+            <div class="fa-3x ml-4"><img src="{{ asset('argon') }}/img/brand/favicon.png">SFMS</div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -82,7 +79,7 @@
             </ul>
             <ul class="navbar-nav align-items-lg-center ml-lg-4">
                 <li class="nav-item d-none d-lg-block">
-                    <a href="{{ route('login') }}" class="btn btn-danger btn-round">
+                    <a href="{{ route('login') }}" class="btn btn-danger btn-round text-uppercase">
                         <span class="btn-inner--icon">
                             <i class="fas fa-sign-in-alt"></i>
                         </span>
@@ -90,7 +87,7 @@
                     </a>
                 </li>
                 <li class="nav-item d-none d-lg-block">
-                    <a href="{{ route('register') }}" class="btn btn-neutral btn-icon">
+                    <a href="{{ route('register') }}" class="btn btn-neutral btn-icon text-uppercase">
                         <span class="btn-inner--icon">
                             <i class="fas fa-user-plus"></i>
                         </span>
