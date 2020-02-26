@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Home', 'class' => 'index-page'])
+@extends('layouts.app', ['title' => 'Home'])
 
 @section('content')
 

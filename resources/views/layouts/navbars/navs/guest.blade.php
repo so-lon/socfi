@@ -77,13 +77,14 @@
                     </div>
                 </li>
             </ul>
+            {{-- Login & Register --}}
             <ul class="navbar-nav align-items-lg-center ml-lg-4">
                 <li class="nav-item d-none d-lg-block">
                     <a href="{{ route('login') }}" class="btn btn-danger btn-round text-uppercase">
                         <span class="btn-inner--icon">
                             <i class="fas fa-sign-in-alt"></i>
                         </span>
-                        <span class="nav-link-inner--text">&nbsp;&nbsp;Login&nbsp;&nbsp;</span>
+                        <span class="nav-link-inner--text">Login</span>
                     </a>
                 </li>
                 <li class="nav-item d-none d-lg-block">
