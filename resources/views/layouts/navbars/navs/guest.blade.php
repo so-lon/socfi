@@ -79,13 +79,13 @@
                 <li class="nav-item d-none d-lg-block">
                     <a href="{{ route('login') }}" class="btn btn-danger btn-round text-uppercase">
                         <i class="fas fa-sign-in-alt"></i>
-                        <span class="nav-link-inner--text">Login</span>
+                        <span class="nav-link-inner--text">Sign in</span>
                     </a>
                 </li>
                 <li class="nav-item d-none d-lg-block">
                     <a href="{{ route('register') }}" class="btn btn-neutral btn-icon text-uppercase">
                         <i class="fas fa-user-plus"></i>
-                        <span class="nav-link-inner--text">Register</span>
+                        <span class="nav-link-inner--text">Sign up</span>
                     </a>
                 </li>
             </ul>

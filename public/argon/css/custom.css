@@ -449,3 +449,14 @@
     pointer-events: none;
     color: #aaa;
 }
+
+.brand-logo-guest img {
+    width: auto;
+    height: 5rem;
+}
+
+.bg-linear-gradient {
+    background: linear-gradient(170deg, #5e72e4 calc(50% - 1px), #172b4d 50%);
+    background-attachment: fixed;
+    background-position: center center;
+}
