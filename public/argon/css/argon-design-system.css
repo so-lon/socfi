@@ -4788,9 +4788,9 @@ input[type="button"].btn-block {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  /*padding: 1rem 1rem;*/
+  /* padding: 1rem 1rem;
   border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px; */
 }
 
 .navbar>.container,
@@ -22860,9 +22860,9 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   will-change: transform;
   background: rgb(2,0,36);
   background: linear-gradient(321deg, rgba(2,0,36,1) 0%, rgba(41,45,62,1) 0%, rgba(41,45,62,1) 100%, rgba(20,94,21,1) 100%);
-    -webkit-box-shadow: 0 8px 6px -6px black;
-  -moz-box-shadow: 0 8px 6px -6px black;
-  box-shadow: 0 8px 6px -6px black;
+  -webkit-box-shadow: 0 4px 6px 0px black;
+  -moz-box-shadow: 0 4px 6px 0px black;
+  box-shadow: 0 4px 6px 0px black;
   transition: all 0.15s ease;
 }
 
