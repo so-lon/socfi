@@ -69,7 +69,7 @@ class UserController extends Controller
         // ));
 
         // return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
-        $result = ["code" => "success"];
+        $result = ["code" => "200", "success" => "true", "error" => "none", "result" => "Update Successfully!!"];
         return json_encode($result);
     }
 
