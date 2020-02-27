@@ -73,6 +73,6 @@ class LoginController extends Controller
         // Login với user vừa tạo.
         Auth::login($createdUser);
 
-        return redirect('index');
+        return redirect('/');
     }
 }
