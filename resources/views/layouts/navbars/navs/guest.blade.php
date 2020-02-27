@@ -24,7 +24,7 @@
                 </div>
             </div>
             <!-- Navbar items -->
-            <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+            <ul class="navbar navbar-nav navbar-nav-hover align-items-lg-center py-0">
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
                         <i class="ni ni-collection d-lg-none"></i>
