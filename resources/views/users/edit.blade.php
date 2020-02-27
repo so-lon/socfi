@@ -61,6 +61,7 @@
 
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
+                                    <button type="button" onclick="testFunc()" class="btn btn-success mt-4">{{ __('Test') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -71,4 +72,27 @@
         
         @include('layouts.footers.auth')
     </div>
+    
+    <script>
+        var uri = "{{ route('user.update', $user) }}";
+        console.log(uri);
+        function testFunc() {
+            var data;
+            function 
+            console.log(uri);   
+            $.ajax({
+                url: uri,
+                type: 'put',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    name: "ABC",
+                    email: "abc@abc.abc"
+                },
+                success: function(result) {
+                    result = JSON.parse(result);
+                    window.alert(result.code);
+                }
+            });
+        }
+    </script>
 @endsection
