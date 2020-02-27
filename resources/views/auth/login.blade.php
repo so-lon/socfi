@@ -29,7 +29,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                             </div>
-                            <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" name="username" value="{{ old('username') }}" required autofocus>
+                            <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" name="username" placeholder="{{ __('Username') }}" autofocus>
                         </div>
                         @if ($errors->has('username'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -43,7 +43,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                             </div>
-                            <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" required>
+                            <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" placeholder="{{ __('Password') }}">
                         </div>
                         @if ($errors->has('password'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
