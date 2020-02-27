@@ -96,11 +96,11 @@
                     success: function(returnedJsonData) {
                         returnedJsonData = JSON.parse(returnedJsonData);
                         if (returnedJsonData.success) {
-                            // inform success message and do whatever u want here
-                            window.alert(returnedJsonData.result);
+                            // inform success message with popup and do whatever u want here
+                            window.alert(returnedJsonData.result); // using alert for the sake of convenience here
                         } else {
-                            // inform fail message and handle whatever u want here
-                            window.alert(returnedJsonData.error);
+                            // inform fail message with popup and handle whatever u want here
+                            window.alert(returnedJsonData.error); // using alert for the sake of convenience here
                         }
                     }
                 });
