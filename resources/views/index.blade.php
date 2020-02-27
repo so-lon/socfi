@@ -14,12 +14,12 @@
                         <div class="col-lg-5 mb-5 mt--5">
                             <div class="card mr-4 ml-4">
                                 <div class="card-title text-center font-weight-bold display-4 pt-4 pb-4 text-uppercase">
-                                sumting
+                                    Thông báo
                                 </div>
                                 <div class="card-body mt--6">
-                                <div class="lead font-weight-bold">Culpa adipisicing eiusmod reprehenderit incididunt in ut adipisicing in velit exercitation aute.</div>
-                                <div class="lead font-weight-bold">Esse non culpa aliquip dolor ut ad minim exercitation amet qui excepteur officia duis.</div>
-                                <div class="lead font-weight-bold">Cillum in incididunt id dolore sed voluptate deserunt exercitation et do aute ad.</div>
+                                <div class="lead font-weight-bold"><a href="#">Trận đấu của bạn vào lúc 18h thứ 7 ngày 29 tháng 2 sắp diễn ra!</a></div>
+                                <div class="lead font-weight-bold"><a href="#">Sân SCSC Chảo Lửa đang có khuyến mãi cực hot, xem ngay!</a></div>
+                                <div class="lead font-weight-bold"><a href="#">Cần cáp kèo đá bóng? Tạo một đội mới ngay bây giờ</a></div>
                                 </div>
                             </div>
                         </div>
