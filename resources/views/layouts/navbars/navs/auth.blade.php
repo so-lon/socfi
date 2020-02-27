@@ -77,7 +77,7 @@
             {{-- User --}}
             <ul class="navbar-nav align-items-center d-none d-md-flex d-lg-inline-block ml-lg-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link py-0 pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
                             <span class="avatar avatar-sm rounded-circle">
                                 <img alt="avatar" src="{{ auth()->user()->avatar }}">
