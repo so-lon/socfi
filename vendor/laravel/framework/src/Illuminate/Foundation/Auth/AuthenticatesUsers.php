@@ -119,7 +119,11 @@ trait AuthenticatesUsers
      */
     protected function authenticated(Request $request, $user)
     {
-        //
+        // Check role of user
+        if ($user->role == constants('user.role.admin') || $user->role == constants('user.role.field_owner')) {
+            return redirect()->route('dashboard');
+        }
+        return redirect()->route('index');
     }
 
     /**

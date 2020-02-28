@@ -25,6 +25,25 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        /* Define roles */
+        Gate::define('isAdmin', function($user) {
+            return $user->role == constants('user.role.admin');
+        });
+
+        Gate::define('isFieldOwner', function($user) {
+            return $user->role == constants('user.role.field_owner');
+        });
+
+        Gate::define('isAdminOrFieldOwner', function($user) {
+            return $user->role == constants('user.role.admin') || $user->role == constants('user.role.field_owner');
+        });
+
+        Gate::define('isCaptain', function($user) {
+            return $user->role == constants('user.role.captain');
+        });
+
+        Gate::define('isPlayer', function($user) {
+            return $user->role == constants('user.role.player');
+        });
     }
 }

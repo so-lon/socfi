@@ -1,5 +1,9 @@
 @auth()
-    @include('layouts.navbars.navs.auth')
+    @can('isAdminOrFieldOwner')
+        @include('layouts.navbars.navs.dashboard')
+    @else
+        @include('layouts.navbars.navs.auth')
+    @endcan
 @endauth
 
 @guest()
