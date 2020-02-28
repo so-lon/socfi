@@ -92,17 +92,27 @@
                 $.ajax({
                     url: uri,
                     type: 'PUT',
+                    dataType : "json",
+					contentType : 'application/json',
                     data: $scope.getUserData(),
+                    async: false, // Indicates that Ajax call must be completed before executing any statements below Ajax
                     success: function(returnedJsonData) {
                         returnedJsonData = JSON.parse(returnedJsonData);
                         if (returnedJsonData.success) {
                             // inform success message with popup and do whatever u want here
+                            console.log(returnedJsonData.result);
                             window.alert(returnedJsonData.result); // using alert for the sake of convenience here
                         } else {
                             // inform fail message with popup and handle whatever u want here
+                            console.log(returnedJsonData.error);
                             window.alert(returnedJsonData.error); // using alert for the sake of convenience here
                         }
-                    }
+                    },
+                    error : function(e) {
+                        // inform fail message and handle error here
+						console.log(e);
+						window.alert(e);
+					}
                 });
             };
         });
