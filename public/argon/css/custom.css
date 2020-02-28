@@ -460,3 +460,28 @@
     background-attachment: fixed;
     background-position: center center;
 }
+
+.col-custom-4 {
+    max-width: 32%;
+    flex: 0 0 32%;
+}
+
+@media (max-width: 992px) {
+    .col-custom-4 {
+        max-width: 47.859575%;
+        flex: 0 0 47.85975%;
+    }
+}
+
+@media (max-width: 800px) {
+    .col-custom-4 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+}
+
+.card-custom-img {
+    width: 100%;
+    height: 100%;
+    border-radius: calc(.375rem - 1px);
+}
