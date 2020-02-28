@@ -1519,7 +1519,6 @@ pre code
     .col-lg
     {
         max-width: 100%;
-
         flex-basis: 0;
         flex-grow: 1;
     }
