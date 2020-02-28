@@ -485,3 +485,7 @@
     height: 100%;
     border-radius: calc(.375rem - 1px);
 }
+
+.info-box {
+    right: 1.5rem;
+}
