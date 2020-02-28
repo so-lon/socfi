@@ -74,9 +74,8 @@
     </div>
 
     <script>
-        var app = angular.module('editUser', []);
-        app.controller('mainController', function($scope) {
-
+        angular.module('editUser', []).controller('mainController', function($scope) {
+            
             // prepare data for update ajax call
             $scope.getUserData = function() {
                 return {
@@ -86,23 +85,34 @@
                 };
             };
 
+            // Call Ajax to push edited User data to controller
+            // Receive responded json 
             $scope.save = function() {
-                var uri = "{{ route('user.update', $user) }}";
                 console.log($scope.getUserData());
                 $.ajax({
-                    url: uri,
+                    url: '{{ route('user.update', $user) }}',
                     type: 'PUT',
+                    // dataType : 'json',
+					// contentType : 'application/json',
                     data: $scope.getUserData(),
+                    async: false, // Indicates that Ajax call must be completed before executing any statements below Ajax
                     success: function(returnedJsonData) {
                         returnedJsonData = JSON.parse(returnedJsonData);
                         if (returnedJsonData.success) {
                             // inform success message with popup and do whatever u want here
+                            console.log(returnedJsonData.result);
                             window.alert(returnedJsonData.result); // using alert for the sake of convenience here
                         } else {
                             // inform fail message with popup and handle whatever u want here
+                            console.log(returnedJsonData.error);
                             window.alert(returnedJsonData.error); // using alert for the sake of convenience here
                         }
-                    }
+                    },
+                    error : function(e) {
+                        // inform fail message and handle error here
+						console.log(e);
+						window.alert(e);
+					}
                 });
             };
         });
