@@ -1,4 +1,4 @@
-@extends('layouts.app-auth', ['title' => 'Sign up', 'description' => 'Create your account'])
+@extends('layouts.app-auth', ['title' => "Sign up", 'description' => "Create your account"])
 
 @section('content')
 
@@ -8,12 +8,27 @@
                 <form role="form" method="POST" action="{{ route('register') }}">
                     @csrf
 
-                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                    <div class="form-group{{ $errors->has('username') ? ' has-danger' : '' }}">
+                        <label class="form-control-label" for="username">{{ __('user.username') }}</label>
                         <div class="input-group input-group-alternative mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                             </div>
-                            <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" type="text" name="name" value="{{ old('name') }}" required autofocus>
+                            <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="{{ __('user.username') }}" type="text" name="username" value="{{ old('username') }}" autofocus>
+                        </div>
+                        @if ($errors->has('username'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('username') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                        <label class="form-control-label" for="username">{{ __('user.name') }}</label>
+                        <div class="input-group input-group-alternative mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                            </div>
+                            <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('user.name') }}" type="text" name="name" value="{{ old('name') }}">
                         </div>
                         @if ($errors->has('name'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -22,11 +37,12 @@
                         @endif
                     </div>
                     <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                        <label class="form-control-label" for="username">{{ __('user.email') }}</label>
                         <div class="input-group input-group-alternative mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                             </div>
-                            <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}" required>
+                            <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('user.email') }}" type="email" name="email" value="{{ old('email') }}">
                         </div>
                         @if ($errors->has('email'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -35,11 +51,12 @@
                         @endif
                     </div>
                     <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+                        <label class="form-control-label" for="username">{{ __('auth.password') }}</label>
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                             </div>
-                            <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Password') }}" type="password" name="password" required>
+                            <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('auth.password') }}" type="password" name="password">
                         </div>
                         @if ($errors->has('password'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -48,11 +65,12 @@
                         @endif
                     </div>
                     <div class="form-group">
+                        <label class="form-control-label" for="username">{{ __('auth.confirmPassword') }}</label>
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                             </div>
-                            <input class="form-control" placeholder="{{ __('Confirm Password') }}" type="password" name="password_confirmation" required>
+                            <input class="form-control" placeholder="{{ __('auth.confirmPassword') }}" type="password" name="password_confirmation">
                         </div>
                     </div>
                     <div class="progress-info">
@@ -74,7 +92,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary mt-4">{{ __('Create account') }}</button>
+                        <button type="submit" class="btn btn-primary mt-4">{{ __('auth.createAccount') }}</button>
                     </div>
                 </form>
             </div>
