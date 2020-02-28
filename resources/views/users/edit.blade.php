@@ -74,9 +74,8 @@
     </div>
 
     <script>
-        var app = angular.module('editUser', []);
-        app.controller('mainController', function($scope) {
-
+        angular.module('editUser', []).controller('mainController', function($scope) {
+            
             // prepare data for update ajax call
             $scope.getUserData = function() {
                 return {
@@ -86,14 +85,15 @@
                 };
             };
 
+            // Call Ajax to push edited User data to controller
+            // Receive responded json 
             $scope.save = function() {
-                var uri = "{{ route('user.update', $user) }}";
                 console.log($scope.getUserData());
                 $.ajax({
-                    url: uri,
+                    url: '{{ route('user.update', $user) }}',
                     type: 'PUT',
-                    dataType : "json",
-					contentType : 'application/json',
+                    // dataType : 'json',
+					// contentType : 'application/json',
                     data: $scope.getUserData(),
                     async: false, // Indicates that Ajax call must be completed before executing any statements below Ajax
                     success: function(returnedJsonData) {
