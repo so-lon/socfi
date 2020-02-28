@@ -5,8 +5,8 @@ return [
         'role' => [
             'admin' => '0',
             'field_owner' => '1',
-            'player' => '2',
-            'captain' => '3',
+            'captain' => '2',
+            'player' => '3',
         ],
     ],
 ];

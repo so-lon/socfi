@@ -70,9 +70,9 @@ class LoginController extends Controller
             'provider_id' => $user->getId(),
         ]);
 
-        // Login với user vừa tạo.
+        // Login with account was created recently
         Auth::login($createdUser);
 
-        return redirect('/');
+        return redirect()->route('index');
     }
 }
