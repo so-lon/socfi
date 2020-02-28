@@ -59,12 +59,12 @@
         <div class="row ml-1 mr-1">
             <div class="card col-custom-4 mr-2 mb-2 stadium">
                 <div class="card-title pt-4 pb-4 stadium-name">
-                    <div class="row ml-4 info-box">
+                    <div class="row ml-4">
                         <div class="font-weight-bold display-4">
                             Sân A
                         </div>
-                        <div class="position-relative ml-5">
-                            <div class="rating">
+                        <div class="position-absolute info-box">
+                            <div class="rating position-relative">
                                 Đánh giá: 
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -73,7 +73,7 @@
                                 <i class="fas fa-star"></i>
                             </div>
                             <div class="like">
-                                Đã được đặt: 
+                                Đã được đặt: 2 lần
                             </div>
                         </div>
                     </div>
@@ -88,6 +88,19 @@
                         <div class="font-weight-bold display-4">
                             Sân A
                         </div>
+                        <div class="position-absolute info-box">
+                            <div class="rating position-relative">
+                                Đánh giá: 
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="like">
+                                Đã được đặt: 2 lần
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body mt--5">
@@ -99,6 +112,19 @@
                     <div class="row ml-4">
                         <div class="font-weight-bold display-4">
                             Sân A
+                        </div>
+                        <div class="position-absolute info-box">
+                            <div class="rating position-relative">
+                                Đánh giá: 
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="like">
+                                Đã được đặt: 2 lần
+                            </div>
                         </div>
                     </div>
                 </div>
