@@ -3,7 +3,7 @@
 @section('content')
     @include('users.partials.header', ['title' => __('Edit User')])   
 
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt--7" ng-app="editUser" ng-controller="mainController">
         <div class="row">
             <div class="col-xl-12 order-xl-1">
                 <div class="card bg-secondary shadow">
@@ -61,7 +61,7 @@
 
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
-                                    <button type="button" onclick="testFunc()" class="btn btn-success mt-4">{{ __('Test') }}</button>
+                                    <button type="button" ng-click="save()" class="btn btn-success mt-4">{{ __('Test') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -72,27 +72,40 @@
         
         @include('layouts.footers.auth')
     </div>
-    
+
     <script>
-        var uri = "{{ route('user.update', $user) }}";
-        console.log(uri);
-        function testFunc() {
-            var data;
-            function 
-            console.log(uri);   
-            $.ajax({
-                url: uri,
-                type: 'put',
-                data: {
+        var app = angular.module('editUser', []);
+        app.controller('mainController', function($scope) {
+
+            // prepare data for update ajax call
+            $scope.getUserData = function() {
+                return {
                     _token: "{{ csrf_token() }}",
-                    name: "ABC",
-                    email: "abc@abc.abc"
-                },
-                success: function(result) {
-                    result = JSON.parse(result);
-                    window.alert(result.code);
-                }
-            });
-        }
+                    name: $("#input-name").val(),
+                    email: $("#input-email").val()
+                };
+            };
+
+            $scope.save = function() {
+                var uri = "{{ route('user.update', $user) }}";
+                console.log($scope.getUserData());
+                $.ajax({
+                    url: uri,
+                    type: 'PUT',
+                    data: $scope.getUserData(),
+                    success: function(returnedJsonData) {
+                        returnedJsonData = JSON.parse(returnedJsonData);
+                        if (returnedJsonData.success) {
+                            // inform success message with popup and do whatever u want here
+                            window.alert(returnedJsonData.result); // using alert for the sake of convenience here
+                        } else {
+                            // inform fail message with popup and handle whatever u want here
+                            window.alert(returnedJsonData.error); // using alert for the sake of convenience here
+                        }
+                    }
+                });
+            };
+        });
     </script>
+
 @endsection

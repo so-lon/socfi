@@ -18,6 +18,9 @@
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css" rel="stylesheet">
         <link type="text/css" href="{{ asset('argon') }}/css/custom.css" rel="stylesheet">
+        <!-- AngularJS + JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
