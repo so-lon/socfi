@@ -34,6 +34,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->role == constants('user.role.field_owner');
         });
 
+        Gate::define('isAdminOrFieldOwner', function($user) {
+            return $user->role == constants('user.role.admin') || $user->role == constants('user.role.field_owner');
+        });
+
         Gate::define('isCaptain', function($user) {
             return $user->role == constants('user.role.captain');
         });

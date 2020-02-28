@@ -27,7 +27,9 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-            {{-- @include('layouts.navbars.sidebar') --}}
+            @can('isAdminOrFieldOwner')
+                @include('layouts.navbars.sidebar')
+            @endcan
         @endauth
 
         <div class="main-content">
