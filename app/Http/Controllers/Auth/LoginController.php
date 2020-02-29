@@ -64,7 +64,7 @@ class LoginController extends Controller
         $createdUser = User::firstOrCreate([
             'name'        => $user->getName(),
             'email'       => $user->getEmail(),
-            'role'        => '1',
+            'role'        => constants('user.role.player'),
             'avatar'      => $user->getAvatar(),
             'provider'    => $provider,
             'provider_id' => $user->getId(),
