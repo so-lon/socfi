@@ -560,6 +560,7 @@ class ComposerStaticInit662055adbe281b14eabc42cd724c5f56
         'App\\Http\\Controllers\\TeamController' => __DIR__ . '/../..' . '/app/Http/Controllers/TeamController.php',
         'App\\Http\\Controllers\\TeamMemberController' => __DIR__ . '/../..' . '/app/Http/Controllers/TeamMemberController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+        'App\\Http\\Controllers\\api\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/LoginController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',

@@ -29,6 +29,7 @@ return array(
     'App\\Http\\Controllers\\TeamController' => $baseDir . '/app/Http/Controllers/TeamController.php',
     'App\\Http\\Controllers\\TeamMemberController' => $baseDir . '/app/Http/Controllers/TeamMemberController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
+    'App\\Http\\Controllers\\api\\LoginController' => $baseDir . '/app/Http/Controllers/Api/LoginController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',
