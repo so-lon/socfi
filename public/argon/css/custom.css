@@ -517,3 +517,16 @@
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
 }
+
+.info-box {
+    right: 1.5rem;
+}
+
+.form-control-radio
+{
+    padding-top: .625rem;
+}
+
+.bg-white {
+    background: #fff;
+}
