@@ -14,7 +14,7 @@
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
-                        <img alt="avatar" src="{{ auth()->user()->avatar }}">
+                        <img alt="avatar" src="{{ asset(auth()->user()->avatar) }}">
                         </span>
                     </div>
                 </a>
@@ -56,7 +56,7 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('index') }}">
+                    <a class="nav-link" href="{{ route('dashboard') }}">
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('home.dashboard') }}
                     </a>
                 </li>

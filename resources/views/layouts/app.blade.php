@@ -20,7 +20,7 @@
         <link type="text/css" href="{{ asset('argon') }}/css/custom.css" rel="stylesheet">
         <!-- AngularJS + JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.js"></script>
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -47,6 +47,8 @@
         @stack('js')
 
         <!-- Argon JS -->
+        <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="{{ asset('argon') }}/vendor/dropzone/dist/min/dropzone.min.js"></script>
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
         <script src="{{ asset('argon') }}/js/custom.js"></script>
     </body>

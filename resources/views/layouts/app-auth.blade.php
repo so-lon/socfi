@@ -19,8 +19,8 @@
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css" rel="stylesheet">
         <link type="text/css" href="{{ asset('argon') }}/css/custom.css" rel="stylesheet">
     </head>
-    <body class="bg-linear-gradient">
-        <div class="header pt-8 pb-4">
+    <body class="bg-login">
+        <div class="header pt-4 pb-4">
             <div class="container">
                 <div class="row justify-content-center">
                     <a class="brand-logo-guest" href="{{ route('index') }}">

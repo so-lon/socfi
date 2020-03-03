@@ -8,6 +8,11 @@ return [
             'captain' => '2',
             'player' => '3',
         ],
+        'gender' => [
+            'male' => '0',
+            'female' => '1',
+            'other' => '2',
+        ],
     ],
     'status' => [
         'success' => '200'
