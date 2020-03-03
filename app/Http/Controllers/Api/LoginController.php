@@ -75,7 +75,6 @@ class LoginController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         }
         $input = $request->all();
-        dd($input);
         $input['password'] = bcrypt($input['password']);
         $user = User::create(
             [
