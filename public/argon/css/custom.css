@@ -489,3 +489,12 @@
 .info-box {
     right: 1.5rem;
 }
+
+.form-control-radio
+{
+    padding-top: .625rem;
+}
+
+.bg-white {
+    background: #fff;
+}

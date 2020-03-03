@@ -14,7 +14,7 @@
                             </div>
                             <div class="col-4 text-right">
                                 <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">
-                                    <i class="fas fa-plus mr-2"></i>{{ __('user.add') }}
+                                    {{ __('user.add') }}
                                 </a>
                             </div>
                         </div>
@@ -42,6 +42,7 @@
                                     <th scope="col">{{ __('user.email') }}</th>
                                     <th scope="col">{{ __('user.phone') }}</th>
                                     <th scope="col">{{ __('user.gender') }}</th>
+                                    <th scope="col">{{ __('user.active') }}</th>
                                     <th scope="col">{{ __('user.createdAt') }}</th>
                                     <th scope="col">{{ __('user.updatedAt') }}</th>
                                     <th scope="col"></th>
@@ -52,7 +53,7 @@
                                     <tr>
                                         <td>
                                             <span class="avatar avatar-sm rounded-circle">
-                                                <img src="{{ $user->avatar }}">
+                                                <img src="{{ asset($user->avatar) }}">
                                             </span>
                                         </td>
                                         <td>{{ $user->username }}</td>
@@ -64,6 +65,12 @@
                                             @if ($user->gender != null)
                                                 {{ __('user.genders.' . $user->gender)  }}
                                             @endif
+                                        </td>
+                                        <td>
+                                            <label class="custom-toggle mb-0">
+                                                <input type="checkbox" {{ $user->deleted_at ? '' : ' checked' }}{{ $user->role == constants('user.role.admin') ? ' disabled' : ''}}>
+                                                <span class="custom-toggle-slider rounded-circle"></span>
+                                            </label>
                                         </td>
                                         <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                         <td>{{ $user->updated_at->format('d/m/Y H:i') }}</td>
