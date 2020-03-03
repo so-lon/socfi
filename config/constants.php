@@ -9,4 +9,7 @@ return [
             'player' => '3',
         ],
     ],
+    'status' => [
+        'success' => '200'
+    ]
 ];
