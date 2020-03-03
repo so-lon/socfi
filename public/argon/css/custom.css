@@ -455,10 +455,12 @@
     height: 5rem;
 }
 
-.bg-linear-gradient {
-    background: linear-gradient(170deg, #5e72e4 calc(50% - 1px), #172b4d 50%);
+.bg-login {
+    background-image: url("../img/bgs/bg-2.jpg");
     background-attachment: fixed;
-    background-position: center center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .col-custom-4 {
@@ -502,4 +504,16 @@
     border: 2px solid #dee2e6;
     border-radius: calc(.375rem - 1px);
     min-height: 150px;
+}
+
+.card-transparent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgba(255,255,255,0.8);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
 }

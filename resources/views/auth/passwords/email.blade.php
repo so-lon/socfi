@@ -3,9 +3,9 @@
 @section('content')
 
     <div class="col-lg-5 col-md-7">
-        <div class="card bg-secondary shadow border-0">
+        <div class="card-transparent shadow border-0">
             <div class="card-body px-lg-5">
-                <div class="text-center text-muted mb-4">
+                <div class="text-center text-body mb-4">
                     <small>{{ __("Enter your user account's verified email address and we will send you a password reset link.") }}</small>
                 </div>
 

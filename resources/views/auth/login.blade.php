@@ -1,11 +1,11 @@
-@extends('layouts.app-auth', ['title' => 'Sign in', 'description' => 'Sign in to Socfi'])
+@extends('layouts.app-auth', ['title' => 'Sign in', 'description' => 'Đăng nhập vào Socfi'])
 
 @section('content')
 
     <div class="col-lg-5 col-md-7">
-        <div class="card bg-secondary shadow border-0">
+        <div class="card-transparent shadow border-0">
             <div class="card-header bg-transparent pb-5">
-                <div class="text-muted text-center mt-2 mb-3"><small>{{ __('Sign in with') }}</small></div>
+                <div class="text-body text-center mt-2 mb-3"><small>{{ __('Đăng nhập bằng') }}</small></div>
                 <div class="btn-wrapper text-center">
                     <!-- test email: itxisvoeqa_1582360847@tfbnw.net
                     test password: test123456 -->
@@ -24,12 +24,12 @@
                     @csrf
 
                     <div class="form-group{{ $errors->has('username') ? ' has-danger' : '' }} mb-3">
-                        <label class="form-control-label" for="username">Username</label>
+                        <label class="form-control-label" for="username">Tên tài khoản</label>
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                             </div>
-                            <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" name="username" placeholder="{{ __('Username') }}" autofocus>
+                            <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" name="username" placeholder="{{ __('Nhập tên tài khoản') }}" autofocus>
                         </div>
                         @if ($errors->has('username'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -38,12 +38,12 @@
                         @endif
                     </div>
                     <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                        <label class="form-control-label" for="password">Password</label>
+                        <label class="form-control-label" for="password">Mật khẩu</label>
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                             </div>
-                            <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" placeholder="{{ __('Password') }}">
+                            <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" placeholder="{{ __('Nhập mật khẩu') }}">
                         </div>
                         @if ($errors->has('password'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -54,27 +54,27 @@
                     <div class="custom-control custom-control-alternative custom-checkbox">
                         <input class="custom-control-input" name="remember" id="customCheckLogin" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
                         <label class="custom-control-label" for="customCheckLogin">
-                            <span class="text-muted">{{ __('Remember me') }}</span>
+                            <span class="text-body">{{ __('Lưu tài khoản này') }}</span>
                         </label>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary my-4">{{ __('Sign in') }}</button>
+                        <button type="submit" class="btn btn-primary my-4">{{ __('Đăng nhập') }}</button>
                     </div>
                 </form>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-6">
-                @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}" class="text-light">
-                        <small>{{ __('Forgot password?') }}</small>
-                    </a>
-                @endif
-            </div>
-            <div class="col-6 text-right">
-                <a href="{{ route('register') }}" class="text-light">
-                    <small>{{ __('Create new account') }}</small>
-                </a>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        @if (Route::has('password.request'))
+                            <a href="{{ route('password.request') }}" class="text-dark">
+                                <small>{{ __('Quên mật khẩu?') }}</small>
+                            </a>
+                        @endif
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="{{ route('register') }}" class="text-dark">
+                            <small>{{ __('Tạo tài khoản mới') }}</small>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
