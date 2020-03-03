@@ -20,7 +20,7 @@ use Illuminate\Http\Request;
 Route::post('login', 'api\LoginController@login');
 Route::post('register', 'api\LoginController@register');
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::post('details', 'api\LoginController@details');
+    Route::get('details', 'api\LoginController@details');
     
 //Scope: match at least 1 scope, Scopes: match all scopes
 Route::get('users', 'api\UserController@index')->middleware('scope:admin');

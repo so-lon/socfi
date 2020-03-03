@@ -26,27 +26,21 @@ class LoginController extends Controller
                 'password' => request('password'),
             ]
         )) {
-            $success['token'] = "";
+            $success['accessToken'] = "";
             $user = Auth::user();
-            //check if user already has token
-            if ($user->tokens()->first() != null) {
-                $success['token'] = 'hiddenToken';
-            } else {
-                //set scope for token(authorized puropose)
-                $scope = [];
-                if($user->role == constants('user.role.admin')){
-                    $scope = [constants('user.role.admin')];
-                } else if(($user->role) == constants('user.role.field_owner')) {
-                    $scope = [constants('user.role.field_owner')];
-                } else if(($user->role) == constants('user.role.captain')) {
-                    $scope = [constants('user.role.captain')];
-                } else {
-                    $scope = [constants('user.role.player')];
-                }
-                //create new token with defined scope and return accessToken for front-end
-                $success['token'] = $user->createToken('socfi', $scope)->accessToken;
-            }
 
+            $scope = [];
+            if($user->role == constants('user.role.admin')){
+                $scope = ['admin'];
+            } else if(($user->role) == constants('user.role.field_owner')) {
+                $scope = ['field_owner'];
+            } else if(($user->role) == constants('user.role.captain')) {
+                $scope = ['captain'];
+            } else {
+                $scope = ['player'];
+            }
+            //create new token with defined scope and return accessToken for front-end
+            $success['token'] = $user->createToken('MyApp', $scope)->accessToken;
             return response()->json(
                 [
                     'success' => $success
@@ -75,6 +69,7 @@ class LoginController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         }
         $input = $request->all();
+        dd($input);
         $input['password'] = bcrypt($input['password']);
         $user = User::create(
             [
