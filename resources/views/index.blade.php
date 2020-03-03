@@ -30,25 +30,23 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 <div class="form-group has-search">
                     <span class="fa fa-search form-control-feedback"></span>
-                    <input type="text" class="form-control form-control-lg mt-4" placeholder="Search">
+                    <input type="text" class="form-control form-control-lg mt-4" placeholder="Tên sân bóng">
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-1">
             </div>
             <div class="col-lg-2">
                 <div class="form-group">
                     <div class="dropdown mt-4" id="ddSearch">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSearch" data-toggle="dropdown">
-                        Sort by
+                        Sắp xếp theo
                         </button>
                         <div class="dropdown-menu">
-                            <button class="dropdown-item" type="button" value="1">Rating low to high</button>
-                            <button class="dropdown-item" type="button" value="2">Rating high to low</button>
-                            <button class="dropdown-item" type="button" value="3">Price low to high</button>
-                            <button class="dropdown-item" type="button" value="4">Price high to low</button>
+                            <button class="dropdown-item" type="button" value="1">Đánh giá từ thấp đến cao</button>
+                            <button class="dropdown-item" type="button" value="2">Đánh giá từ cao đến thấp</button>
                         </div>
                     </div>
                 </div>
@@ -56,80 +54,96 @@
         </div>        
     </div>
     <div class="container">
-        <div class="row ml-1 mr-1">
-            <div class="card col-custom-4 mr-2 mb-2 stadium">
-                <div class="card-title pt-4 pb-4 stadium-name">
-                    <div class="row ml-4">
+        <div class="row ml-1 mr-1 mb-1 stadium">
+            <div class="col-lg-3 m-auto">
+                <img class="card-custom-img" src="./argon/img/bgs/bg-1.jpg">
+            </div>
+            <div class="col-lg-6 m-auto">
+                <div class="pt-4 pb-4">
+                    <div class="row m-auto">
                         <div class="font-weight-bold display-4">
-                            Sân A
-                        </div>
-                        <div class="position-absolute info-box">
-                            <div class="rating position-relative">
-                                Đánh giá: 
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="like">
-                                Đã được đặt: 2 lần
-                            </div>
+                            Sân SCSC Chảo Lửa
                         </div>
                     </div>
-                </div>
-                <div class="card-body mt--5">
-                    <img class="card-custom-img" src="./argon/img/bgs/bg-1.jpg">
+                    <div class="row m-auto">
+                        <div class="font-weight-bold display-5">
+                            Địa chỉ: In elit labore consectetur.
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card col-custom-4 mr-2 mb-2 stadium">
-                <div class="card-title pt-4 pb-4 stadium-name">
-                    <div class="row ml-4">
-                        <div class="font-weight-bold display-4">
-                            Sân A
-                        </div>
-                        <div class="position-absolute info-box">
-                            <div class="rating position-relative">
-                                Đánh giá: 
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="like">
-                                Đã được đặt: 2 lần
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-lg-3 m-auto">
+                <div class="rating">
+                    Đánh giá: 
+                    <i class="fas fa-star rating-star"></i>
+                    <i class="fas fa-star rating-star"></i>
+                    <i class="fas fa-star rating-star"></i>
+                    <i class="fas fa-star rating-star"></i>
                 </div>
-                <div class="card-body mt--5">
-                    <img class="card-custom-img" src="./argon/img/bgs/bg-1.jpg">
+                <div class="like">
+                    Đã được đặt: 2 lần
                 </div>
             </div>
-            <div class="card col-custom-4 mr-2 mb-2 stadium">
-                <div class="card-title pt-4 pb-4 stadium-name">
-                    <div class="row ml-4">
+        </div>
+        <div class="row ml-1 mr-1 mb-1 stadium">
+            <div class="col-lg-3 m-auto">
+                <img class="card-custom-img" src="./argon/img/bgs/bg-1.jpg">
+            </div>
+            <div class="col-lg-6 m-auto">
+                <div class="pt-4 pb-4">
+                    <div class="row m-auto">
                         <div class="font-weight-bold display-4">
-                            Sân A
+                            Sân SCSC Chảo Lửa
                         </div>
-                        <div class="position-absolute info-box">
-                            <div class="rating position-relative">
-                                Đánh giá: 
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="like">
-                                Đã được đặt: 2 lần
-                            </div>
+                    </div>
+                    <div class="row m-auto">
+                        <div class="font-weight-bold display-5">
+                            Địa chỉ: In elit labore consectetur.
                         </div>
                     </div>
                 </div>
-                <div class="card-body mt--5">
-                    <img class="card-custom-img" src="./argon/img/bgs/bg-1.jpg">
+            </div>
+            <div class="col-lg-3 m-auto">
+                <div class="rating">
+                    Đánh giá: 
+                    <i class="fas fa-star rating-star"></i>
+                    <i class="fas fa-star rating-star"></i>
+                    <i class="fas fa-star rating-star"></i>
+                    <i class="fas fa-star rating-star"></i>
+                </div>
+                <div class="like">
+                    Đã được đặt: 2 lần
+                </div>
+            </div>
+        </div>
+        <div class="row ml-1 mr-1 mb-1 stadium">
+            <div class="col-lg-3 m-auto">
+                <img class="card-custom-img" src="./argon/img/bgs/bg-1.jpg">
+            </div>
+            <div class="col-lg-6 m-auto">
+                <div class="pt-4 pb-4">
+                    <div class="row m-auto">
+                        <div class="font-weight-bold display-4">
+                            Sân SCSC Chảo Lửa
+                        </div>
+                    </div>
+                    <div class="row m-auto">
+                        <div class="font-weight-bold display-5">
+                            Địa chỉ: In elit labore consectetur.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 m-auto">
+                <div class="rating">
+                    Đánh giá: 
+                    <i class="fas fa-star rating-star"></i>
+                    <i class="fas fa-star rating-star"></i>
+                    <i class="fas fa-star rating-star"></i>
+                    <i class="fas fa-star rating-star"></i>
+                </div>
+                <div class="like">
+                    Đã được đặt: 2 lần
                 </div>
             </div>
         </div>
