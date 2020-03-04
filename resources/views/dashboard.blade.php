@@ -278,6 +278,144 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-5">
+            <div class="card shadow col-xl-12">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <h2 class="mb-0 col-5">Lịch đặt sân</h2>
+                        <div class="date col-2 form-group calendar" data-provide="datepicker"
+                            data-date-format="dd/mm/yyyy">
+                            <div class="input-group-addon">
+                                <span class="fas fa-calendar-alt form-control-feedback"></span>
+                                <input type="text" readonly class="form-control mt-4">
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                        <div class="col-1">
+                            <a href="#" class="btn btn-sm btn-primary text-right">Chỉnh sửa</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr class="text-center">
+                                <th scope="col" class="w-12-5 text-dark"><strong>Thời gian</strong></th>
+                                <th scope="col" class="w-12-5 text-dark"><strong>Sân 1</strong></th>
+                                <th scope="col" class="w-12-5 text-dark"><strong>Sân 2</strong></th>
+                                <th scope="col" class="w-12-5 text-dark"><strong>Sân 3</strong></th>
+                                <th scope="col" class="w-12-5 text-dark"><strong>Sân 4</strong></th>
+                                <th scope="col" class="w-12-5 text-dark"><strong>Sân 5</strong></th>
+                                <th scope="col" class="w-12-5 text-dark"><strong>Sân 6</strong></th>
+                                <th scope="col" class="w-12-5 text-dark"><strong>Sân 7</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="h-100-px">
+                                <th class="thead-custom">
+                                    6:00
+                                </th>
+                                <td class="ordered"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="h-100-px">
+                                <th scope="row" class="thead-custom">
+                                    7:00
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="ordered"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="h-100-px">
+                                <th scope="row" class="thead-custom">
+                                    7:00
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="h-100-px">
+                                <th scope="row" class="thead-custom">
+                                    7:00
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="h-100-px">   
+                                <th scope="row" class="thead-custom">
+                                    7:00
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td class="ordered ">
+                                    Tên: Trường
+                                    <br/>
+                                    Giá: 100000đ
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="h-100-px">   
+                                <th scope="row" class="thead-custom">
+                                    7:00
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="h-100-px">   
+                                <th scope="row" class="thead-custom">
+                                    7:00
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="h-100-px">   
+                                <th scope="row" class="thead-custom">
+                                    7:00
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
         @include('layouts.footers.auth')
     </div>
