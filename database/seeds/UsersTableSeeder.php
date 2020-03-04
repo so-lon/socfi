@@ -13,6 +13,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        factory(User::class, 20)->create();
+
         DB::table('users')->insert([
             'id'                => (string) Str::uuid(),
             'username'          => 'socfisystem',
@@ -26,6 +28,5 @@ class UsersTableSeeder extends Seeder
             'updated_at'        => now()
         ]);
 
-        factory(User::class, 10)->create();
     }
 }

@@ -17,11 +17,11 @@ use Illuminate\Http\Request;
 
 // Route::resource('users', 'Api\UserController', ['except' => ['show']]);
 
-Route::post('login', 'api\LoginController@login');
-Route::post('register', 'api\LoginController@register');
+Route::post('login', 'Api\LoginController@login');
+Route::post('register', 'Api\LoginController@register');
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::get('details', 'api\LoginController@details');
-    
+    Route::get('details', 'Api\LoginController@details');
+
 //Scope: match at least 1 scope, Scopes: match all scopes
-Route::get('users', 'api\UserController@index')->middleware('scope:admin');
+Route::get('users', 'Api\UserController@index')->middleware('scope:admin');
 });

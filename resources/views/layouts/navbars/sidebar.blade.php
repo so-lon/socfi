@@ -6,7 +6,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('index') }}">
-            <img src="{{ asset('argon') }}/img/brand/blue.png" class="navbar-brand-img" alt="...">
+            <img src="{{ asset('argon') }}/img/brand/logo-dark.png" class="navbar-brand-img" alt="...">
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -42,7 +42,7 @@
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a href="{{ route('index') }}">
-                            <img src="{{ asset('argon') }}/img/brand/blue.png">
+                            <img src="{{ asset('argon') }}/img/brand/logo-dark.png">
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -83,7 +83,7 @@
                 </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}">
-                        <i class="ni ni-circle-08 text-primary"></i> {{ __('User Management') }}
+                        <i class="ni ni-circle-08 text-primary"></i> {{ __('user.management') }}
                     </a>
                 </li>
             </ul>

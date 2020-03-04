@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('phone', 16)->unique()->nullable();
             $table->string('avatar')->nullable();
             $table->string('gender', 1)->nullable();
-            $table->date('birthday')->nullable();
+            $table->string('birthday')->nullable();
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
             $table->timestamp('phone_verified_at')->nullable();

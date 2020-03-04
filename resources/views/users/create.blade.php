@@ -1,7 +1,7 @@
-@extends('layouts.app', ['title' => __('User Management')])
+@extends('layouts.app', ['title' => __('user.add')])
 
 @section('content')
-    @include('users.partials.header', ['title' => __('Add User')])
+    @include('users.partials.header', ['title' => __('user.add')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -10,10 +10,10 @@
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('User Management') }}</h3>
+                                <h3 class="mb-0">{{ __('user.information') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
+                                <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('user.backToList') }}</a>
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,6 @@
                         <form method="post" action="{{ route('user.store') }}" autocomplete="off">
                             @csrf
 
-                            <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>
                             <div class="pl-lg-4">
                                 {{-- Role --}}
                                 <div class="form-group{{ $errors->has('role') ? ' has-danger' : '' }}">
@@ -80,7 +79,7 @@
                                     <div class="col-xl-2 col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-birthday">{{ __('user.birthday') }}</label>
-                                            <input id="input-birthday" readonly class="form-control datepicker bg-white" type="text" value="03/03/2020">
+                                            <input id="input-birthday" name="birthday" readonly class="form-control datepicker bg-white" type="text" value="{{ now()->format('d/m/Y') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +133,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('user.save') }}</button>
+                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('user.create') }}</button>
                                 </div>
                             </div>
                         </form>

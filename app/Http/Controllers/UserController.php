@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index(User $model)
     {
-        return view('users.index', ['users' => $model->withTrashed()->paginate(15)]);
+        return view('users.index', ['users' => $model->withTrashed()->orderByDesc('updated_at')->paginate(5)]);
     }
 
     /**
@@ -63,26 +63,37 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User  $user)
     {
-        // $user->update(
-        //     $request->merge(['password' => Hash::make($request->get('password'))])
-        //         ->except([$request->get('password') ? '' : 'password']
-        // ));
+        $user->update(
+            $request->merge(['password' => Hash::make($request->get('password'))])
+                ->except([$request->get('password') ? '' : 'password']
+        ));
 
-        // return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
-        $result = ["code" => "200", "success" => "true", "error" => "none", "result" => "Update Successfully!!"];
-        return json_encode($result);
+        return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
     }
 
     /**
-     * Remove the specified user from storage
+     * Soft delete the specified user from storage
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(User  $user)
+    public function destroy(User $user)
     {
         $user->delete();
 
         return redirect()->route('user.index')->withStatus(__('User successfully deleted.'));
+    }
+
+    /**
+     * Restore the specified user from storage
+     *
+     * @param  \App\Models\User  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function restore($id)
+    {
+        User::withTrashed()->find($id)->restore();
+
+        return redirect()->route('user.index')->withStatus(__('User successfully restored.'));
     }
 }

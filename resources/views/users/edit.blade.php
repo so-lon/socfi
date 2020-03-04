@@ -1,19 +1,19 @@
-@extends('layouts.app', ['title' => __('User Management')])
+@extends('layouts.app', ['title' => __('user.edit')])
 
 @section('content')
-    @include('users.partials.header', ['title' => __('Edit User')])   
+    @include('users.partials.header', ['title' => __('user.edit')])
 
-    <div class="container-fluid mt--7" ng-app="editUser" ng-controller="mainController">
+    <div class="container-fluid mt--7">
         <div class="row">
             <div class="col-xl-12 order-xl-1">
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('User Management') }}</h3>
+                                <h3 class="mb-0">{{ __('user.information') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
+                                <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('user.backToList') }}</a>
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,6 @@
                             @csrf
                             @method('put')
 
-                            <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>
                             <div class="pl-lg-4">
                                 {{-- Role --}}
                                 <div class="form-group{{ $errors->has('role') ? ' has-danger' : '' }}">
@@ -81,7 +80,7 @@
                                     <div class="col-xl-2 col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-birthday">{{ __('user.birthday') }}</label>
-                                            <input id="input-birthday" class="form-control datepicker" type="text" value="{{ $user->birthday }}">
+                                            <input id="input-birthday" name="birthday" readonly class="form-control datepicker bg-white" type="text" value="{{ $user->birthday }}">
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +134,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('user.save') }}</button>
+                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('user.save') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -143,13 +142,13 @@
                 </div>
             </div>
         </div>
-        
+
         @include('layouts.footers.auth')
     </div>
 
     <script>
         angular.module('editUser', []).controller('mainController', function($scope) {
-            
+
             // prepare data for update ajax call
             $scope.getUserData = function() {
                 return {
@@ -160,7 +159,7 @@
             };
 
             // Call Ajax to push edited User data to controller
-            // Receive responded json 
+            // Receive responded json
             $scope.save = function() {
                 console.log($scope.getUserData());
                 $.ajax({

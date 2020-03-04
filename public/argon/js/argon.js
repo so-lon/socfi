@@ -26,8 +26,9 @@ var Datepicker = (function() {
 
 	// Variables
 
-	var $datepicker = $('.datepicker');
-
+    var $datepicker = $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy'
+    });
 
 	// Methods
 
@@ -955,7 +956,7 @@ var OrdersChart = (function() {
 							}
 
 							content += '<span class="popover-body-value">' + yLabel + '</span>';
-							
+
 							return content;
 						}
 					}

@@ -8,20 +8,22 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'add' => 'Tạo người dùng',
-    'users' => 'Người dùng',
-    'username' => 'Tên tài khoản',
-    'name' => 'Họ tên',
-    'password' => 'Mật khẩu',
+    // Models
+    'users'           => 'Người dùng',
+    'username'        => 'Tên tài khoản',
+    'name'            => 'Họ tên',
+    'password'        => 'Mật khẩu',
     'confirmPassword' => 'Xác nhận mật khẩu',
-    'email' => 'Email',
-    'phone' => 'Số điện thoại',
-    'gender' => 'Giới tính',
-    'genders' => [
+    'email'           => 'Email',
+    'phone'           => 'Số điện thoại',
+    'birthday'        => 'Ngày sinh',
+    'gender'          => 'Giới tính',
+    'genders'         => [
         '0' => 'Nam',
         '1' => 'Nữ',
         '2' => 'Khác',
     ],
+    'active' => 'Trạng thái',
     'createdAt' => 'Thời gian tạo',
     'updatedAt' => 'Thời gian cập nhật',
     'role' => 'Quyền',
@@ -30,5 +32,15 @@ return [
         '1' => 'Quản lý sân bóng',
         '2' => 'Đội trưởng',
         '3' => 'Người chơi',
-    ]
+    ],
+
+    // Titles
+    'add'         => 'Tạo tài khoản',
+    'edit'        => 'Chỉnh sửa',
+    'management'  => 'Quản lý người dùng',
+    'list'        => 'Danh sách tài khoản',
+    'backToList'  => 'Trở về danh sách',
+    'information' => 'Thông tin tài khoản',
+    'create'      => 'Tạo',
+    'save'        => 'Lưu',
 ];

@@ -35,6 +35,7 @@ Route::group(['middleware' => 'can:isAdminOrFieldOwner'], function () {
 // Route for Admin
 Route::group(['middleware' => 'can:isAdmin'], function () {
     Route::resource('user', 'UserController', ['except' => ['show']]);
+    Route::put('user/{id}/restore', 'UserController@restore')->name('user.restore');
 });
 
 // Route for Field Owner
