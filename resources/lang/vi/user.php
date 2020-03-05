@@ -24,8 +24,6 @@ return [
         '2' => 'Khác',
     ],
     'active' => 'Trạng thái',
-    'createdAt' => 'Thời gian tạo',
-    'updatedAt' => 'Thời gian cập nhật',
     'role' => 'Quyền',
     'roles' => [
         '0' => 'Quản trị viên',
@@ -39,7 +37,6 @@ return [
     'edit'        => 'Chỉnh sửa',
     'management'  => 'Quản lý người dùng',
     'list'        => 'Danh sách tài khoản',
-    'backToList'  => 'Trở về danh sách',
     'information' => 'Thông tin tài khoản',
     'create'      => 'Tạo',
     'save'        => 'Lưu',
