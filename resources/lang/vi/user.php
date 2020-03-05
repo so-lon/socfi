@@ -43,4 +43,11 @@ return [
     'information' => 'Thông tin tài khoản',
     'create'      => 'Tạo',
     'save'        => 'Lưu',
+
+    //Message
+    'message' => [
+        'undeletable' => 'Không thể xóa tài khoản Quản trị viên',
+        'success'     => 'Xóa tài khoản thành công'
+    ]
+
 ];

@@ -25,3 +25,9 @@ Route::group(['middleware' => 'auth:api'], function() {
 //Scope: match at least 1 scope, Scopes: match all scopes
 Route::get('users', 'Api\UserController@index')->middleware('scope:admin');
 });
+Route::group(['middleware' => ['web']], function () {
+    Route::get('login/{provider}', 'Api\LoginController@redirectToProvider');
+    Route::get('login/{provider}/callback', 'Api\LoginController@handleProviderCallback');
+});
+// Route::get('login/{provider}', 'Api\LoginController@redirectToProvider')->middleware('api');
+// Route::get('login/{provider}/callback', 'Api\LoginController@handleProviderCallback')->middleware('api');

@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index(User $model)
     {
-        return view('users.index', ['users' => $model->withTrashed()->orderByDesc('updated_at')->paginate(5)]);
+        return view('users.index', ['users' => $model->withTrashed()->orderByDesc('updated_at')->paginate(20)]);
     }
 
     /**
@@ -79,9 +79,12 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        if ($user->role == constants('user.role.admin')) {
+            return redirect()->route('user.index')->withErrors(__('user.message.undeletable'));
+        }
         $user->delete();
 
-        return redirect()->route('user.index')->withStatus(__('User successfully deleted.'));
+        return redirect()->route('user.index')->withStatus(__('user.message.success'));
     }
 
     /**

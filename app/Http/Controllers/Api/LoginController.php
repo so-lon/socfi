@@ -9,6 +9,7 @@ use App\Models\User;
 use Validator;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\Bridge\ClientRepository;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -28,7 +29,7 @@ class LoginController extends Controller
         )) {
             $success['accessToken'] = "";
             $user = Auth::user();
-
+// dd($user);
             $scope = [];
             if($user->role == constants('user.role.admin')){
                 $scope = ['admin'];
@@ -55,6 +56,48 @@ class LoginController extends Controller
                 ]
             );
         }
+    }
+
+    /**
+     * Redirect the user to the social network authentication page
+     *
+     * @return Response
+     */
+    public function redirectToProvider($provider) {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from social network
+     *
+     * @return Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        // Get social network's user infomation
+        $user = Socialite::driver($provider)->user();
+
+        // Create user with information from social network
+        $createdUser = User::firstOrCreate([
+            'name'        => $user->getName(),
+            'email'       => $user->getEmail(),
+            'role'        => constants('user.role.player'),
+            'avatar'      => $user->getAvatar(),
+            'provider'    => $provider,
+            'provider_id' => $user->getId(),
+        ]);
+
+        // Login with account was created recently
+        Auth::login($createdUser);
+        $success['token'] = Auth::user()->createToken('MyApp', ['player'])->accessToken;
+        // $success['token'] = $createdUser->createToken('MyApp', ['Player'])->accessToken;
+        return response()->json(
+            [
+                'success' => $success
+            ],
+            constants('status.success') //200
+        );
+
     }
 
     public function register(Request $request)
