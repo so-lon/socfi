@@ -1,7 +1,7 @@
-@extends('layouts.app', ['title' => __('user.management')])
+@extends('layouts.app', ['title' => __('news.management')])
 
 @section('content')
-    @include('users.partials.header', ['title' => __('user.management')])
+    @include('users.partials.header', ['title' => __('news.management')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -10,12 +10,12 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('user.list') }}</h3>
+                                <h3 class="mb-0">{{ __('news.list') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">
+                                <a href="{{ route('news.create') }}" class="btn btn-sm btn-primary">
                                     <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-                                    <span class="btn-inner--text">{{ __('user.add') }}</span>
+                                    <span class="btn-inner--text">{{ __('news.add') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -36,42 +36,30 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">{{ __('user.username') }}</th>
-                                    <th scope="col">{{ __('user.name') }}</th>
-                                    <th scope="col">{{ __('user.role') }}</th>
-                                    <th scope="col">{{ __('user.active') }}</th>
-                                    <th scope="col">{{ __('user.updatedAt') }}</th>
+                                    <th scope="col">{{ __('news.title') }}</th>
+                                    <th scope="col">{{ __('news.createdBy') }}</th>
+                                    <th scope="col">{{ __('news.updatedBy') }}</th>
+                                    <th scope="col">{{ __('news.createdAt') }}</th>
+                                    <th scope="col">{{ __('news.updatedAt') }}</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($users as $user)
+                                @foreach ($news as $new)
                                     <tr>
                                         <td>
-                                            <span class="avatar avatar-sm rounded-circle">
-                                                <img src="{{ asset($user->avatar) }}">
-                                            </span>
+                                            <a href="{{ route('news.show', $new) }}">
+                                                {{ $new->title }}
+                                            </a>
                                         </td>
-                                        <td>{{ $user->username }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ __('user.roles.' . $user->role) }}</td>
-                                        <td>
-                                            <form action="{{ $user->trashed() ? route('user.restore', $user->id) : route('user.destroy', $user) }}" method="post">
-                                                @csrf
-                                                @method($user->trashed() ? 'put' : 'delete')
-
-                                                <label class="custom-toggle mb-0">
-                                                    <input type="checkbox" {{ $user->trashed() ? '' : ' checked' }}{{ $user->role == constants('user.role.admin') ? ' disabled' : '' }} onclick="this.parentElement.parentElement.submit()">
-                                                    <span class="custom-toggle-slider rounded-circle"></span>
-                                                </label>
-                                            </form>
-                                        </td>
-                                        <td>{{ $user->updated_at->format('d/m/Y H:i') }}</td>
+                                        <td>{{ $new->userCreated->username }}</td>
+                                        <td>{{ $new->userUpdated->username }}</td>
+                                        <td>{{ $new->created_at->format('d/m/Y H:i') }}</td>
+                                        <td>{{ $new->updated_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
-                                            <a href="{{ $user->trashed() ? '#' : ($user->id != auth()->id() ? route('user.edit', $user) : route('profile.edit')) }}" class="btn btn-sm btn-default{{ $user->trashed() ? ' disabled' :'' }}">
+                                            <a href="{{ route('news.edit', $new) }}" class="btn btn-sm btn-default">
                                                 <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
-                                                <span class="btn-inner--text">{{ __('user.edit') }}</span>
+                                                <span class="btn-inner--text">{{ __('news.edit') }}</span>
                                             </a>
                                         </td>
                                     </tr>
@@ -80,7 +68,7 @@
                         </table>
                     </div>
                     <div class="card-footer py-4">
-                        {{ $users->links() }}
+                        {{ $news->links() }}
                     </div>
                 </div>
             </div>

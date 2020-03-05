@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,8 +12,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 20)->create();
-
         DB::table('users')->insert([
             'id'                => (string) Str::uuid(),
             'username'          => 'socfisystem',

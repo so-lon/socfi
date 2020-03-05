@@ -57,7 +57,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('home.dashboard') }}
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('common.sidebar.dashboard') }}
                     </a>
                 </li>
                 {{-- <li class="nav-item">
@@ -83,7 +83,12 @@
                 </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}">
-                        <i class="ni ni-circle-08 text-primary"></i> {{ __('user.management') }}
+                        <i class="ni ni-circle-08 text-info"></i> {{ __('common.sidebar.user') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('news.index') }}">
+                        <i class="ni ni-notification-70 text-warning"></i> {{ __('common.sidebar.news') }}
                     </a>
                 </li>
             </ul>

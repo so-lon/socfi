@@ -23,7 +23,7 @@ class News extends Model
      */
     public function userCreated()
     {
-        return $this->belongsTo('App\Models\User', 'id', 'created_by');
+        return $this->belongsTo('App\Models\User', 'created_by');
     }
 
     /**
@@ -31,6 +31,6 @@ class News extends Model
      */
     public function userUpdated()
     {
-        return $this->belongsTo('App\Models\User', 'id', 'updated_by');
+        return $this->belongsTo('App\Models\User', 'updated_by');
     }
 }

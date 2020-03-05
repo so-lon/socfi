@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -11,9 +12,9 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(News $model)
     {
-        //
+        return view('news.index', ['news' => $model->orderByDesc('updated_at')->paginate(5)]);
     }
 
     /**
@@ -23,18 +24,21 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('news.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param  \App\Models\News  $model
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, News $model)
     {
-        //
+        $model->create();
+
+        return redirect()->route('news.index')->withStatus(__('News successfully created.'));
     }
 
     /**
@@ -45,7 +49,7 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        //
+        return view('news.show', ['news' => $news]);
     }
 
     /**
@@ -56,7 +60,7 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        //
+        return view('news.edit', compact('news'));
     }
 
     /**
@@ -68,7 +72,9 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        //
+        $news->update();
+
+        return redirect()->route('news.index')->withStatus(__('news successfully updated.'));
     }
 
     /**
@@ -79,6 +85,8 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+        $news->delete();
+
+        return redirect()->route('news.index')->withStatus(__('news successfully deleted.'));
     }
 }
