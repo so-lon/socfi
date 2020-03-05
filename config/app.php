@@ -165,7 +165,9 @@ return [
         /*
          * Package Service Providers...
          */
-	Laravel\Socialite\SocialiteServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -175,10 +177,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        /**
-         * Add PassportServiceProvider
-         */
-        Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*
