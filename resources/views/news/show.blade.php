@@ -21,9 +21,9 @@
 
                         <div class="pl-lg-4">
                             {{-- Title --}}
-                            {{ $news->title }}
+                            <h1>{{ $news->title }}</h1>
                             {{-- Content --}}
-                            {{!! $news->content !!}}
+                            <div>{!! $news->content !!}</div>
                         </div>
                     </div>
                 </div>

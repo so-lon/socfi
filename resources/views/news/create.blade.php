@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <form method="post" action="{{ route('news.store') }}" autocomplete="off">
                             @csrf
-
+                            <input type="hidden" id="ckdata" name="content">
                             <div class="pl-lg-4">
                                 {{-- Title --}}
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
@@ -37,14 +37,20 @@
                                 <div class="form-group{{ $errors->has('content') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-content">{{ __('news.content') }}</label>
                                     {{-- <input type="text" name="content" id="input-content" class="form-control form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" placeholder="{{ __('news.content') }}" value="{{ old('news.content') }}" autofocus> --}}
-                                    <textarea name="content" id="ckeditor" cols="30" rows="10"></textarea>
+                                    <textarea id="ckeditor" cols="30" rows="10"></textarea>
                                     <script>
                                         CKEDITOR.replace( 'ckeditor' );
+                                        function parseCK() {
+                                            var data = CKEDITOR.instances.ckeditor.getData();
+                                            $('#ckdata').val(data);
+                                            return true;
+                                        }
+                                        
                                     </script>
                                 </div>
                                 {{-- Button --}}
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('news.create') }}</button>
+                                    <button type="submit" class="btn btn-success mt-4 px-4" onclick="parseCK()">{{ __('news.create') }}</button>
                                 </div>
                             </div>
                         </form>
