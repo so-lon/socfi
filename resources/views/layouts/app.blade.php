@@ -18,7 +18,11 @@
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css" rel="stylesheet">
         <link type="text/css" href="{{ asset('argon') }}/css/custom.css" rel="stylesheet">
+        <link type="text/css" href="{{ asset('argon') }}/css/ckeditor/neo.css" rel="stylesheet">
+        <link type="text/css" href="{{ asset('argon') }}/css/ckeditor/samples.css" rel="stylesheet">
         <!-- AngularJS + JQuery -->
+        <script src="{{ asset('argon') }}/js/ckeditor/ckeditor.js"></script>
+        <script src="{{ asset('argon') }}/js/ckeditor/sample.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.js"></script>
     </head>

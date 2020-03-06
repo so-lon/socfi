@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('news.add')])
 
 @section('content')
-    @include('newss.partials.header', ['title' => __('news.add')])
+    @include('news.partials.header', ['title' => __('news.add')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -34,7 +34,10 @@
                                     @endif
                                 </div>
                                 {{-- Content --}}
-
+                                <div id="editor">
+                                    <h1>Hello world!</h1>
+                                    <p>I'm an instance of <a href="https://ckeditor.com">CKEditor</a>.</p>
+                                </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4 px-4">{{ __('news.create') }}</button>
                                 </div>
@@ -47,4 +50,7 @@
 
         @include('layouts.footers.auth')
     </div>
+    <script>
+        initSample();
+    </script>
 @endsection
