@@ -82,7 +82,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
      *
      * @var int
      */
-    protected $perPage = 15;
+    protected $perPage = 20;
 
     /**
      * Indicates if the model exists.

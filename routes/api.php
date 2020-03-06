@@ -29,5 +29,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('login/{provider}', 'Api\LoginController@redirectToProvider');
     Route::get('login/{provider}/callback', 'Api\LoginController@handleProviderCallback');
 });
+Route::resource('stadium', 'Api\StadiumController');
+// Route::get('stadium/{stadiumName}', 'Api\BookingController@index');
+
 // Route::get('login/{provider}', 'Api\LoginController@redirectToProvider')->middleware('api');
 // Route::get('login/{provider}/callback', 'Api\LoginController@handleProviderCallback')->middleware('api');
