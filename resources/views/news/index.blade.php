@@ -52,8 +52,8 @@
                                                 {{ $new->title }}
                                             </a>
                                         </td>
-                                        <td>{{ $new->user_created }}</td>
-                                        <td>{{ $new->user_updated }}</td>
+                                        <td>{{ $new->userCreated->username }}</td>
+                                        <td>{{ $new->userUpdated->username }}</td>
                                         <td>{{ $new->created_at->format('d/m/Y H:i') }}</td>
                                         <td>{{ $new->updated_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
