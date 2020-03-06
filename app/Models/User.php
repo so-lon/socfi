@@ -52,7 +52,7 @@ class User extends Authenticatable
      */
     public function stadiums()
     {
-        return $this->hasMany('App\Models\Stadium');
+        return $this->hasOne('App\Models\Stadium');
     }
 
     /**
@@ -60,7 +60,7 @@ class User extends Authenticatable
      */
     public function teams()
     {
-        return $this->hasMany('App\Models\Team');
+        return $this->belongsToMany('App\Models\Team', 'team_members');
     }
 
     /**

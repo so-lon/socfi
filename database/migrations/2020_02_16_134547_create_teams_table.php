@@ -20,7 +20,7 @@ class CreateTeamsTable extends Migration
             $table->unsignedTinyInteger('ban_flag')->default(0);
             $table->uuid('created_by');
             $table->uuid('updated_by');
-            $table->softDeletes(0);
+            $table->softDeletes();
             $table->timestamps();
 
             // Foreign Key Constraints

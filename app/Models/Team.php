@@ -23,6 +23,6 @@ class Team extends Model
      */
     public function userCreated()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsToMany('App\Models\User');
     }
 }

@@ -29,7 +29,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('login/{provider}', 'Api\LoginController@redirectToProvider');
     Route::get('login/{provider}/callback', 'Api\LoginController@handleProviderCallback');
 });
+
 Route::resource('stadium', 'Api\StadiumController');
+Route::resource('profile', 'Api\ProfileController', ['except' => ['create','destroy','index']]);
+
 // Route::get('stadium/{stadiumName}', 'Api\BookingController@index');
 
 // Route::get('login/{provider}', 'Api\LoginController@redirectToProvider')->middleware('api');
