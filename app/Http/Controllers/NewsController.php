@@ -41,9 +41,8 @@ class NewsController extends Controller
      */
     public function store(Request $request, News $model)
     {
-        
         $model->create();
-        
+
         return redirect()->route('news.index')->withStatus(__('news.message.create.success'));
     }
 
