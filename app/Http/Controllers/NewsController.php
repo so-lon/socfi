@@ -15,12 +15,8 @@ class NewsController extends Controller
      */
     public function index(News $model)
     {
-        return view(
-            'news.index',
-            [
-                'news' => $model->getListOfNews()
-            ]
-        );
+
+        return view('news.index', ['news' => $model->orderByDesc('updated_at')->paginate(5)]);
     }
 
     /**
