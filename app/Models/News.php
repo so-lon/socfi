@@ -33,4 +33,18 @@ class News extends Model
     {
         return $this->belongsTo('App\Models\User', 'updated_by');
     }
+
+    /**
+     * Get list of news.
+     *
+     * @return Collection
+     */
+    public function getListOfNews()
+    {
+        return $this
+            ->select('id', 'title', 'created_by', 'updated_by', 'created_at', 'updated_at')
+            ->with('userCreated:id,username', 'userUpdated:id,username')
+            ->orderByDesc('updated_at')
+            ->paginate(5);
+    }
 }

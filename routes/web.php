@@ -32,10 +32,10 @@ Route::group(['middleware' => 'can:isAdminOrFieldOwner'], function () {
 	Route::get('dashboard', 'HomeController@index')->name('dashboard');
 });
 
+Route::resource('news', 'NewsController');
 // Route for Admin
 Route::group(['middleware' => 'can:isAdmin'], function () {
     Route::resource('user', 'UserController', ['except' => ['show']]);
-    Route::resource('news', 'NewsController');
     Route::put('user/{id}/restore', 'UserController@restore')->name('user.restore');
 });
 

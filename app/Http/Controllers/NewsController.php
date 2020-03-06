@@ -14,10 +14,12 @@ class NewsController extends Controller
      */
     public function index(News $model)
     {
-        dd($model->orderByDesc('updated_at')->paginate(5));
-        $model['user_created'] = $model->userCreated->username;
-        $model['user_updated'] = $model->userUpdated->username;
-        return view('news.index', ['news' => $model->orderByDesc('updated_at')->paginate(5)]);
+        return view(
+            'news.index',
+            [
+                'news' => $model->getListOfNews()
+            ]
+        );
     }
 
     /**
@@ -41,7 +43,7 @@ class NewsController extends Controller
     {
         $model->create();
 
-        return redirect()->route('news.index')->withStatus(__('News successfully created.'));
+        return redirect()->route('news.index')->withStatus(__('news.message.create.success'));
     }
 
     /**
