@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         // Seeding
         factory(User::class, 20)->create()->each(
             function($user) {
-                $admin = User::where('username', 'socfisystem')->get('id')->first();
+                $admin = User::where('username', 'socfisystem')->first();
                 factory(News::class, 1)->create([
                     'created_by' => $admin->id,
                     'updated_by' => $admin->id,
