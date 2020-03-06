@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Resources\UserResource as UserResource;
 
 class UserController extends Controller
 {
@@ -17,7 +16,7 @@ class UserController extends Controller
      */
     public function index(User $model)
     {
-        return view('users.index', ['users' => UserResource::collection($model->paginate(10))]);
+        return view('users.index', ['users' => $model->withTrashed()->orderByDesc('updated_at')->paginate(20)]);
     }
 
     /**
