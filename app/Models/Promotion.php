@@ -25,4 +25,12 @@ class Promotion extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    /**
+     * Get the user that created the price.
+     */
+    public function userUpdated()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

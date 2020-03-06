@@ -15,27 +15,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Create admin
         $this->call([UsersTableSeeder::class]);
-        $admin = DB::table('users')->where('username', 'socfisystem')->value('id');
+
+        // Seeding
         factory(User::class, 20)->create()->each(
             function($user) {
-                $admin = DB::table('users')->where('username', 'socfisystem')->value('id');
+                $admin = User::where('username', 'socfisystem')->first();
                 factory(News::class, 1)->create([
-                    'created_by' => $admin,
-                    'updated_by' => $admin,
+                    'created_by' => $admin->id,
+                    'updated_by' => $admin->id,
                 ]);
                 if ($user->role == constants('user.role.field_owner')) {
                     factory(Stadium::class, 1)->create([
-                        'owned_by' => $admin,
-                        'created_by' => $admin,
-                        'updated_by' => $admin,
+                        'owned_by'   => $user->id,
+                        'created_by' => $admin->id,
+                        'updated_by' => $user->id,
                     ])->each(
                         function($stadium) {
-                            $admin = DB::table('users')->where('username', 'socfisystem')->value('id');
                             factory(Field::class, 5)->create([
                                 'stadium_id' => $stadium->id,
-                                'created_by' => $admin,
-                                'updated_by' => $admin,
                             ]);
                         }
                     );

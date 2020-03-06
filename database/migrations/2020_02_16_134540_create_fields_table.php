@@ -22,8 +22,6 @@ class CreateFieldsTable extends Migration
             $table->time('closing_time');
             $table->unsignedTinyInteger('type');
             $table->unsignedTinyInteger('condition')->default(0);
-            $table->uuid('created_by');
-            $table->uuid('updated_by');
             $table->timestamps();
 
             // Foreign Key Constraints

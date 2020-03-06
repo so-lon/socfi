@@ -20,8 +20,6 @@ class CreatePriceForFieldPerHourTable extends Migration
             $table->time('slot_start');
             $table->time('slot_end');
             $table->float('price_per_hour');
-            $table->uuid('created_by');
-            $table->uuid('updated_by');
             $table->timestamps();
 
             // Primary Keys
@@ -34,7 +32,6 @@ class CreatePriceForFieldPerHourTable extends Migration
             // Foreign Key Constraints
             $table->foreign('stadium_id')->references('id')->on('stadiums')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('field_id')->references('id')->on('fields')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('created_by')->references('id')->on('users');
         });
     }
 
