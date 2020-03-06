@@ -15,7 +15,7 @@ class Field extends Model
      * @var array
      */
     protected $fillable = [
-        'stadium_id', 'name', 'opening_time', 'closing_time', 'type', 'condition', 'created_by', 'updated_by'
+        'stadium_id', 'name', 'opening_time', 'closing_time', 'type', 'condition'
     ];
 
     /**
@@ -24,22 +24,6 @@ class Field extends Model
     public function stadium()
     {
         return $this->belongsTo('App\Models\Stadium');
-    }
-
-    /**
-     * Get the user that created the field.
-     */
-    public function userCreated()
-    {
-        return $this->belongsTo('App\Models\User', 'created_by');
-    }
-
-    /**
-     * Get the user that updated the field.
-     */
-    public function userUpdated()
-    {
-        return $this->belongsTo('App\Models\User', 'updated_by');
     }
 
     /**

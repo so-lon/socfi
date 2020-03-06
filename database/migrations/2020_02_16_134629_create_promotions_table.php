@@ -26,6 +26,7 @@ class CreatePromotionsTable extends Migration
 
             // Foreign Key Constraints
             $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('updated_by')->references('id')->on('users');
         });
     }
 

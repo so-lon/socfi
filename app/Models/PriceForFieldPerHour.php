@@ -15,7 +15,7 @@ class PriceForFieldPerHour extends Model
      * @var array
      */
     protected $fillable = [
-        'stadium_id', 'field_id', 'slot_start', 'slot_end', 'price_per_hour', 'created_by', 'updated_by'
+        'stadium_id', 'field_id', 'slot_start', 'slot_end', 'price_per_hour'
     ];
 
     /**
@@ -24,13 +24,5 @@ class PriceForFieldPerHour extends Model
     public function field()
     {
         return $this->belongsTo('App\Models\Field');
-    }
-
-    /**
-     * Get the user that created the price.
-     */
-    public function userCreated()
-    {
-        return $this->belongsTo('App\Models\User');
     }
 }
