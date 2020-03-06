@@ -27,14 +27,6 @@ class Booking extends Model
     }
 
     /**
-     * Get the stadium that owns the booking.
-     */
-    public function stadium()
-    {
-        return $this->belongsTo('App\Models\Stadium');
-    }
-
-    /**
      * Get the field that owns the booking.
      */
     public function field()

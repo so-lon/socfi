@@ -23,7 +23,7 @@ class Stadium extends Model
      */
     public function userOwns()
     {
-        return $this->belongsTo('App\Models\User', 'id', 'owned_by');
+        return $this->belongsTo('App\Models\User', 'owned_by');
     }
 
     /**
@@ -31,7 +31,7 @@ class Stadium extends Model
      */
     public function userCreated()
     {
-        return $this->belongsTo('App\Models\User', 'id', 'created_by');
+        return $this->belongsTo('App\Models\User', 'created_by');
     }
 
     /**
@@ -39,7 +39,7 @@ class Stadium extends Model
      */
     public function userUpdated()
     {
-        return $this->belongsTo('App\Models\User', 'id', 'updated_by');
+        return $this->belongsTo('App\Models\User', 'updated_by');
     }
 
     /**

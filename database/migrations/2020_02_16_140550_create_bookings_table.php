@@ -17,15 +17,16 @@ class CreateBookingsTable extends Migration
             // Columns
             $table->uuid('id')->primary();
             $table->uuid('user_id');
-            $table->uuid('stadium_id');
             $table->uuid('field_id');
+            $table->float('price');
             $table->datetime('start_datetime');
             $table->unsignedInteger('duration');
-            $table->unsignedInteger('is_canceled')->default(0);
+            $table->unsignedInteger('state')->default(0);
+            $table->softDeletes();
+            $table->timestamps();
 
             // Foreign Key Constraints
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('stadium_id')->references('id')->on('stadiums')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('field_id')->references('id')->on('fields')->onDelete('cascade')->onUpdate('cascade');
         });
     }
