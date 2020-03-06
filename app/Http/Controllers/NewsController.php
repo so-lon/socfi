@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
-use Illuminate\Http\Request;
+use App\Http\Requests\NewsRequest;
+use Auth;
 
 class NewsController extends Controller
 {
@@ -36,14 +37,18 @@ class NewsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Models\News  $model
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\NewsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, News $model)
+    public function store(NewsRequest $request, News $model)
     {
-        
-        $model->create();
-        
+        $model->create(
+            $request->merge([
+                'created_by' => Auth::user()->id,
+                'updated_by' => Auth::user()->id,
+            ])->all()
+        );
+
         return redirect()->route('news.index')->withStatus(__('news.message.create.success'));
     }
 
@@ -72,11 +77,11 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\NewsRequest  $request
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(NewsRequest $request, News $news)
     {
         $news->update();
 

@@ -34,12 +34,15 @@
                                     @endif
                                 </div>
                                 {{-- Content --}}
-                                
-                                {{-- CKEditor textarea --}}
-                                <textarea name="ckeditor" id="ckeditor" cols="30" rows="10"></textarea>
-                                <script>    
-                                    CKEDITOR.replace( 'ckeditor' );
-                                </script>
+                                <div class="form-group{{ $errors->has('content') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-content">{{ __('news.content') }}</label>
+                                    {{-- <input type="text" name="content" id="input-content" class="form-control form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" placeholder="{{ __('news.content') }}" value="{{ old('news.content') }}" autofocus> --}}
+                                    <textarea name="content" id="ckeditor" cols="30" rows="10"></textarea>
+                                    <script>
+                                        CKEDITOR.replace( 'ckeditor' );
+                                    </script>
+                                </div>
+                                {{-- Button --}}
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4 px-4">{{ __('news.create') }}</button>
                                 </div>

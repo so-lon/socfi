@@ -15,7 +15,7 @@ class News extends Model
      * @var array
      */
     protected $fillable = [
-        'content', 'created_by', 'updated_by'
+        'title', 'content', 'created_by', 'updated_by'
     ];
 
     /**
