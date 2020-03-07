@@ -564,8 +564,10 @@
 
 .ordered {
     background-color: rgba(236,215,25,0.5);
-    border-radius: 0.5rem; 
+    border-radius: 0.5rem;
     text-align: center;
     margin: auto;
     font-weight: bold;
 }
+
+/* Quill */

@@ -1,5 +1,14 @@
 @extends('layouts.app', ['title' => __('user.add')])
 
+@section('js')
+    <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy'
+        });
+    </script>
+@endsection
+
 @section('content')
     @include('users.partials.header', ['title' => __('user.add')])
 

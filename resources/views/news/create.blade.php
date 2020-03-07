@@ -1,5 +1,25 @@
 @extends('layouts.app', ['title' => __('news.add')])
 
+@section('css')
+    <link href="{{ asset('argon') }}/vendor/quill/dist/quill.snow.css" rel="stylesheet">
+@endsection
+
+@section('js')
+    <script src="{{ asset('argon') }}/vendor/quill/dist/quill.js"></script>
+    <script>
+        var form = $('form')[1];
+        form.onsubmit = function() {
+            // Create hidden input and append to form
+            $('<input>').attr({
+                type: 'hidden',
+                name: 'content',
+                value: quill.root.innerHTML
+            }).appendTo(form);
+            return true;
+        };
+    </script>
+@endsection
+
 @section('content')
     @include('news.partials.header', ['title' => __('news.add')])
 
@@ -36,11 +56,13 @@
                                 {{-- Content --}}
                                 <div class="form-group{{ $errors->has('content') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-content">{{ __('news.content') }}</label>
-                                    {{-- <input type="text" name="content" id="input-content" class="form-control form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" placeholder="{{ __('news.content') }}" value="{{ old('news.content') }}" autofocus> --}}
-                                    <textarea name="content" id="ckeditor" cols="30" rows="10"></textarea>
-                                    <script>
-                                        CKEDITOR.replace( 'ckeditor' );
-                                    </script>
+                                    <div class="bg-white">
+                                        {{-- Quill's toolbar --}}
+                                        <div id="toolbar"></div>
+                                        <input type="hidden" name="content" value="">
+                                        {{-- Quill's editor --}}
+                                        <div id="editor"></div>
+                                    </div>
                                 </div>
                                 {{-- Button --}}
                                 <div class="text-center">
@@ -52,7 +74,6 @@
                 </div>
             </div>
         </div>
-
         @include('layouts.footers.auth')
     </div>
 @endsection
