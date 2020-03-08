@@ -43,7 +43,7 @@
                     <div class="card-body">
                         <form method="post" action="{{ route('news.store') }}" autocomplete="off">
                             @csrf
-
+                            <input type="hidden" id="ckdata" name="content">
                             <div class="pl-lg-4">
                                 {{-- Title --}}
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
@@ -68,7 +68,7 @@
                                 </div>
                                 {{-- Button --}}
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('news.create') }}</button>
+                                    <button type="submit" class="btn btn-success mt-4 px-4" onclick="parseCK()">{{ __('news.create') }}</button>
                                 </div>
                             </div>
                         </form>
