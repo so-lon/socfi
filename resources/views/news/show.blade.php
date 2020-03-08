@@ -13,7 +13,14 @@
                                 <h3 class="mb-0">{{ __('news.information') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('news.index') }}" class="btn btn-sm btn-primary">{{ __('common.backToList') }}</a>
+                                <a href="{{ route('news.index') }}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-chevron-left"></i>
+                                    {{ __('common.backToList') }}
+                                </a>
+                                <a href="{{ route('news.edit', $news) }}" class="btn btn-sm btn-default">
+                                    <i class="fas fa-pencil-alt"></i>
+                                    {{ __('news.edit') }}
+                                </a>
                             </div>
                         </div>
                     </div>

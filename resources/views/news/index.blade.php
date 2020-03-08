@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('news.management')])
 
 @section('content')
-    @include('users.partials.header', ['title' => __('news.management')])
+    @include('news.partials.header', ['title' => __('news.management')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -9,13 +9,24 @@
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
-                            <div class="col-8">
-                                <h3 class="mb-0">{{ __('news.list') }}</h3>
-                            </div>
-                            <div class="col-4 text-right">
+                            {{-- Search --}}
+                            <div class="col-4">
+                              <form action="{{ route('news.search') }}" method="post">
+                              @csrf
+                              <div class="input-group">
+                                  <input type="text" name="terms" id="input-search" class="form-control border-primary" placeholder="{{ __('common.search') }} .." value="{{ $terms ?? '' }}" autofocus>
+                                  <div class="input-group-append">
+                                      <button type="submit" class="btn btn-outline-primary form-inline">
+                                          <i class="fas fa-search"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                              </form>
+                          </div>
+                          <div class="col-8 text-right">
                                 <a href="{{ route('news.create') }}" class="btn btn-sm btn-primary">
-                                    <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-                                    <span class="btn-inner--text">{{ __('news.add') }}</span>
+                                    <i class="fas fa-plus"></i>
+                                    {{ __('news.add') }}
                                 </a>
                             </div>
                         </div>
@@ -52,14 +63,14 @@
                                                 {{ $new->title }}
                                             </a>
                                         </td>
-                                        <td>{{ $new->user_created }}</td>
-                                        <td>{{ $new->user_updated }}</td>
+                                        <td>{{ $new->userCreated->username }}</td>
+                                        <td>{{ $new->userUpdated->username }}</td>
                                         <td>{{ $new->created_at->format('d/m/Y H:i') }}</td>
                                         <td>{{ $new->updated_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
                                             <a href="{{ route('news.edit', $new) }}" class="btn btn-sm btn-default">
-                                                <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
-                                                <span class="btn-inner--text">{{ __('news.edit') }}</span>
+                                                <i class="fas fa-pencil-alt"></i>
+                                                {{ __('news.edit') }}
                                             </a>
                                         </td>
                                     </tr>

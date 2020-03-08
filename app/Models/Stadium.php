@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Stadium extends Model
 {
     use UsesUuid;
+
     public $table = 'stadiums';
     /**
      * The attributes that are mass assignable.

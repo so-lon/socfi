@@ -33,7 +33,10 @@
                                 <h3 class="mb-0">{{ __('news.information') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('news.index') }}" class="btn btn-sm btn-primary">{{ __('common.backToList') }}</a>
+                                <a href="{{ route('news.index') }}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-chevron-left"></i>
+                                    {{ __('common.backToList') }}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +48,7 @@
                                 {{-- Title --}}
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-title">{{ __('news.title') }}</label>
-                                    <input type="text" name="title" id="input-title" class="form-control form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('news.title') }}" value="{{ old('news.title') }}" autofocus>
+                                    <input type="text" name="title" id="input-title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('news.title') }}" value="{{ old('news.title') }}" autofocus>
 
                                     @if ($errors->has('title'))
                                         <span class="invalid-feedback" role="alert">
@@ -59,7 +62,6 @@
                                     <div class="bg-white">
                                         {{-- Quill's toolbar --}}
                                         <div id="toolbar"></div>
-                                        <input type="hidden" name="content" value="">
                                         {{-- Quill's editor --}}
                                         <div id="editor"></div>
                                     </div>

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
-use App\Http\Requests\NewsRequest;
+use News;
+use NewsRequest;
+use SearchRequest;
 use Auth;
 
 class NewsController extends Controller
@@ -17,6 +18,23 @@ class NewsController extends Controller
     {
 
         return view('news.index', ['news' => $model->orderByDesc('updated_at')->paginate(5)]);
+    }
+
+    /**
+     * Display a listing of the resource with search keywords
+     *
+     * @param  \App\Http\Requests\SearchRequest  $request
+     * @param  \App\Models\User  $model
+     * @return \Illuminate\View\View
+     */
+    public function search(SearchRequest $request, News $model)
+    {
+        $terms = $request->get('terms');
+
+        return view('news.index', [
+            'news' => $model->whereLike(['title', 'userCreated.username', 'userUpdated.username'], $terms)->orderByDesc('updated_at')->paginate(5),
+            'terms' => $terms
+        ]);
     }
 
     /**
@@ -45,7 +63,7 @@ class NewsController extends Controller
             ])->all()
         );
 
-        return redirect()->route('news.index')->withStatus(__('news.message.create.success'));
+        return redirect()->route('news.index')->withStatus(__('news.message.success.create'));
     }
 
     /**
@@ -79,9 +97,13 @@ class NewsController extends Controller
      */
     public function update(NewsRequest $request, News $news)
     {
-        $news->update();
+        $news->update(
+            $request->merge([
+                'updated_by' => Auth::user()->id,
+            ])->all()
+        );
 
-        return redirect()->route('news.index')->withStatus(__('news successfully updated.'));
+        return redirect()->route('news.index')->withStatus(__('news.message.success.update'));
     }
 
     /**
@@ -94,6 +116,6 @@ class NewsController extends Controller
     {
         $news->delete();
 
-        return redirect()->route('news.index')->withStatus(__('news successfully deleted.'));
+        return redirect()->route('news.index')->withStatus(__('news.message.success.delete'));
     }
 }

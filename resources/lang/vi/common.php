@@ -22,4 +22,5 @@ return [
     'backToList'  => 'Trở về danh sách',
     'create'      => 'Tạo',
     'save'        => 'Lưu',
+    'search'      => 'Tìm kiếm',
 ];

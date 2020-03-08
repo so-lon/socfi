@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Http\Requests\UserRequest;
-use Illuminate\Support\Facades\Hash;
+use User;
+use UserRequest;
+use SearchRequest;
+use Hash;
 
 class UserController extends Controller
 {
@@ -16,7 +17,24 @@ class UserController extends Controller
      */
     public function index(User $model)
     {
-        return view('users.index', ['users' => $model->withTrashed()->orderByDesc('updated_at')->paginate(20)]);
+        return view('users.index', ['users' => $model->withTrashed()->orderByDesc('updated_at')->paginate(5)]);
+    }
+
+    /**
+     * Display a listing of the users with search keywords
+     *
+     * @param  \App\Http\Requests\SearchRequest  $request
+     * @param  \App\Models\User  $model
+     * @return \Illuminate\View\View
+     */
+    public function search(SearchRequest $request, User $model)
+    {
+        $terms = $request->get('terms');
+
+        return view('users.index', [
+            'users' => $model->withTrashed()->whereLike(['username', 'name'], $terms)->orderByDesc('updated_at')->paginate(5),
+            'terms' => $terms
+        ]);
     }
 
     /**

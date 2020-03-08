@@ -36,7 +36,7 @@ var Datepicker = (function() {
 			autoclose: false
 		};
 
-		$this.datepicker(options);
+		// $this.datepicker(options);
 	}
 
 

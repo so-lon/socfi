@@ -9,13 +9,24 @@
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
-                            <div class="col-8">
-                                <h3 class="mb-0">{{ __('user.list') }}</h3>
+                            {{-- Search --}}
+                            <div class="col-4">
+                                <form action="{{ route('user.search') }}" method="post">
+                                @csrf
+                                <div class="input-group">
+                                    <input type="text" name="terms" id="input-search" class="form-control border-primary" placeholder="{{ __('common.search') }} .." value="{{ $terms ?? '' }}" autofocus>
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-outline-primary form-inline">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                </form>
                             </div>
-                            <div class="col-4 text-right">
+                            <div class="col-8 text-right">
                                 <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">
-                                    <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-                                    <span class="btn-inner--text">{{ __('user.add') }}</span>
+                                    <i class="fas fa-plus"></i>
+                                    {{ __('user.add') }}
                                 </a>
                             </div>
                         </div>
@@ -78,8 +89,8 @@
                                         <td>{{ $user->updated_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
                                             <a href="{{ $user->trashed() ? '#' : ($user->id != auth()->id() ? route('user.edit', $user) : route('profile.edit')) }}" class="btn btn-sm btn-default{{ $user->trashed() ? ' disabled' :'' }}">
-                                                <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
-                                                <span class="btn-inner--text">{{ __('user.edit') }}</span>
+                                                <i class="fas fa-pencil-alt"></i>
+                                                {{ __('user.edit') }}
                                             </a>
                                         </td>
                                     </tr>

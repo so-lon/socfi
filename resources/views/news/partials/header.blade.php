@@ -1,6 +1,4 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="background-image: url(../argon/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
-    <!-- Mask -->
-    <span class="mask bg-gradient-default opacity-8"></span>
+<div class="header pb-8 pt-6 pt-lg-10 d-flex align-items-center" style="background-image: url({{ asset('argon') }}/img/bgs/gradient-5.jpg); background-size: cover; background-position: center top;">
     <!-- Header container -->
     <div class="container-fluid d-flex align-items-center">
         <div class="row">
@@ -12,4 +10,4 @@
             </div>
         </div>
     </div>
-</div> 
+</div>

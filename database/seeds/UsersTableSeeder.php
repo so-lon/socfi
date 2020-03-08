@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        // Create admin account
         DB::table('users')->insert([
             'id'                => (string) Str::uuid(),
             'username'          => 'socfisystem',

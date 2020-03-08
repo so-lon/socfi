@@ -22,7 +22,10 @@
                                 <h3 class="mb-0">{{ __('user.information') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('user.backToList') }}</a>
+                                <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-chevron-left"></i>
+                                    {{ __('common.backToList') }}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -54,7 +57,7 @@
                                     <div class="col-xl-4 col-lg-6">
                                         <div class="form-group{{ $errors->has('username') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-username">{{ __('user.username') }}</label>
-                                            <input type="text" name="username" id="input-username" class="form-control form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="{{ __('user.username') }}" value="{{ old('user.username') }}" autofocus>
+                                            <input type="text" name="username" id="input-username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="{{ __('user.username') }}" value="{{ old('user.username') }}" autofocus>
 
                                             @if ($errors->has('username'))
                                                 <span class="invalid-feedback" role="alert">
@@ -66,7 +69,7 @@
                                     <div class="col-xl-4 col-lg-6">
                                         <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-name">{{ __('user.name') }}</label>
-                                            <input type="text" name="name" id="input-name" class="form-control form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('user.name') }}" value="{{ old('name') }}">
+                                            <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('user.name') }}" value="{{ old('name') }}">
 
                                             @if ($errors->has('name'))
                                             <span class="invalid-feedback" role="alert">
@@ -97,7 +100,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-email">{{ __('user.email') }}</label>
-                                            <input type="email" name="email" id="input-email" class="form-control form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('user.email') }}" value="{{ old('email') }}">
+                                            <input type="email" name="email" id="input-email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('user.email') }}" value="{{ old('email') }}">
 
                                             @if ($errors->has('email'))
                                                 <span class="invalid-feedback" role="alert">
@@ -109,7 +112,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-email">{{ __('user.phone') }}</label>
-                                            <input type="text" name="phone" id="input-phone" class="form-control form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="{{ __('user.phone') }}" value="{{ old('phone') }}">
+                                            <input type="text" name="phone" id="input-phone" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="{{ __('user.phone') }}" value="{{ old('phone') }}">
 
                                             @if ($errors->has('phone'))
                                                 <span class="invalid-feedback" role="alert">
@@ -124,7 +127,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-password">{{ __('user.password') }}</label>
-                                            <input type="password" name="password" id="input-password" class="form-control form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('user.password') }}">
+                                            <input type="password" name="password" id="input-password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('user.password') }}">
 
                                             @if ($errors->has('password'))
                                                 <span class="invalid-feedback" role="alert">
@@ -136,7 +139,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-password-confirmation">{{ __('user.confirmPassword') }}</label>
-                                            <input type="password" name="password_confirmation" id="input-password-confirmation" class="form-control form-control" placeholder="{{ __('user.confirmPassword') }}">
+                                            <input type="password" name="password_confirmation" id="input-password-confirmation" class="form-control" placeholder="{{ __('user.confirmPassword') }}">
                                         </div>
                                     </div>
                                 </div>

@@ -168,7 +168,6 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
 
-
         /*
          * Application Service Providers...
          */
@@ -191,7 +190,7 @@ return [
     */
 
     'aliases' => [
-
+        // Supports
         'App'          => Illuminate\Support\Facades\App::class,
         'Arr'          => Illuminate\Support\Arr::class,
         'Artisan'      => Illuminate\Support\Facades\Artisan::class,
@@ -227,9 +226,35 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
+
+        // Packages
         'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
         'Passport'     => Laravel\Passport\Passport::class,
 
+        // Models
+        'Booking'              => App\Models\Booking::class,
+        'Field'                => App\Models\Field::class,
+        'Match'                => App\Models\Match::class,
+        'News'                 => App\Models\News::class,
+        'PriceForFieldPerHour' => App\Models\PriceForFieldPerHour::class,
+        'Promotion'            => App\Models\Promotion::class,
+        'PromotionForStadium'  => App\Models\PromotionForStadium::class,
+        'Stadium'              => App\Models\Stadium::class,
+        'Team'                 => App\Models\Team::class,
+        'TeamMember'           => App\Models\TeamMember::class,
+        'User'                 => App\Models\User::class,
+
+        // Requests
+        'NewsRequest'     => App\Http\Requests\NewsRequest::class,
+        'PasswordRequest' => App\Http\Requests\PasswordRequest::class,
+        'ProfileRequest'  => App\Http\Requests\ProfileRequest::class,
+        'UserRequest'     => App\Http\Requests\UserRequest::class,
+        'SearchRequest'   => App\Http\Requests\SearchRequest::class,
+
+        // Resources
+        'ProfileResource' => App\Http\Requests\ProfileResource::class,
+        'StadiumResource' => App\Http\Requests\StadiumResource::class,
+        'UserResource'    => App\Http\Requests\UserResource::class,
     ],
 
 ];
