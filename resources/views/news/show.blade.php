@@ -17,13 +17,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-
+                    <div class="card-body bg-white">
                         <div class="pl-lg-4">
                             {{-- Title --}}
-                            <h1>{{ $news->title }}</h1>
+                            <h1 class="display-1">{{ $news->title }}</h1>
+                            {{-- Created by & Time --}}
+                            <dt class="text-uppercase">
+                                {{ $news->userCreated->username }}
+                                <i class="ml-lg-4 mr-2 far fa-clock"></i>{{ $news->updated_at->format('d/m/Y H:i') }}
+                            </dt>
+                            <hr>
                             {{-- Content --}}
-                            <div>{!! $news->content !!}</div>
+                            {!! $news->content !!}
                         </div>
                     </div>
                 </div>

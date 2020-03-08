@@ -22,7 +22,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.js"></script>
 
-    <script type="text/javascript" src="{{ asset('ckeditor') }}/ckeditor.js"></script>
+        @yield('css')
+    {{-- <script type="text/javascript" src="{{ asset('ckeditor') }}/ckeditor.js"></script> --}}
 
     </head>
     <body class="{{ $class ?? '' }}">
@@ -50,8 +51,8 @@
         @stack('js')
 
         <!-- Argon JS -->
-        <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
         <script src="{{ asset('argon') }}/js/custom.js"></script>
+        @yield('js')
     </body>
 </html>
