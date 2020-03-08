@@ -76,7 +76,7 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ __('user.roles.' . $user->role) }}</td>
                                         <td>
-                                            <form action="{{ $user->trashed() ? route('user.restore', $user->id) : route('user.destroy', $user) }}" method="post">
+                                            <form action="{{ $user->trashed() ? route('user.restore', $user->username) : route('user.destroy', $user->username) }}" method="post">
                                                 @csrf
                                                 @method($user->trashed() ? 'put' : 'delete')
 
@@ -88,7 +88,7 @@
                                         </td>
                                         <td>{{ $user->updated_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
-                                            <a href="{{ $user->trashed() ? '#' : ($user->id != auth()->id() ? route('user.edit', $user) : route('profile.edit')) }}" class="btn btn-sm btn-default{{ $user->trashed() ? ' disabled' :'' }}">
+                                            <a href="{{ $user->trashed() ? '#' : ($user->id != auth()->id() ? route('user.edit', $user->username) : route('profile.edit')) }}" class="btn btn-sm btn-default{{ $user->trashed() ? ' disabled' :'' }}">
                                                 <i class="fas fa-pencil-alt"></i>
                                                 {{ __('user.edit') }}
                                             </a>

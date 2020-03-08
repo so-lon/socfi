@@ -34,9 +34,9 @@ Route::group(['middleware' => 'can:isAdminOrFieldOwner'], function () {
 
 // Route for Admin
 Route::group(['middleware' => 'can:isAdmin'], function () {
-    Route::resource('user', 'UserController', ['except' => ['show']]);
+    Route::resource('user', 'UserController', ['except' => ['show'], 'parameters' => ['user' => 'username']]);
+    Route::put('user/{username}/restore', 'UserController@restore')->name('user.restore');
     Route::match(['get', 'post'], 'user/search', 'UserController@search')->name('user.search');
-    Route::put('user/{id}/restore', 'UserController@restore')->name('user.restore');
     Route::resource('news', 'NewsController');
     Route::match(['get', 'post'], 'news/search', 'NewsController@search')->name('news.search');
 });

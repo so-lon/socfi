@@ -79,7 +79,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UserRequest $request, User  $user)
+    public function update(UserRequest $request, User $user)
     {
         $user->update(
             $request->merge(['password' => Hash::make($request->get('password'))])
@@ -108,12 +108,12 @@ class UserController extends Controller
     /**
      * Restore the specified user from storage
      *
-     * @param  \App\Models\User  $id
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function restore($id)
+    public function restore(User $user)
     {
-        User::withTrashed()->find($id)->restore();
+        $user->restore();
 
         return redirect()->route('user.index')->withStatus(__('User successfully restored.'));
     }

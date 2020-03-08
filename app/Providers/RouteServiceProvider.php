@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use User;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -33,6 +34,10 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+        Route::bind('username', function ($username) {
+            return User::withTrashed()->where('username', $username)->firstOrFail();
+        });
     }
 
     /**
