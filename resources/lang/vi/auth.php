@@ -13,17 +13,16 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'signIn' => 'Đăng nhập',
-    'signInToSocfi' => 'Đăng nhập vào Socfi',
-    'signInWith' => 'Đăng nhập bằng',
-    'createAccount' => 'Tạo tài khoản',
+    'failed'            => 'Tên đăng nhập hoặc mật khẩu không khớp.',
+    'signIn'            => 'Đăng nhập',
+    'signInToSocfi'     => 'Đăng nhập vào Socfi',
+    'signInWith'        => 'Đăng nhập bằng',
+    'createAccount'     => 'Tạo tài khoản',
     'createYourAccount' => 'Tạo tài khoản của bạn',
-    'passwordStrength' => 'Độ mạnh mật khẩu',
-    'password' => 'Mật khẩu',
-    'confirmPassword' => 'Xác nhận mật khẩu',
-    'rememberMe' => 'Lưu tài khoản này',
-    'forgotPassword' => 'Quên mật khẩu?',
-    'createNewAccount' => 'Tạo tài khoản mới',
+    'passwordStrength'  => 'Độ mạnh mật khẩu',
+    'password'          => 'Mật khẩu',
+    'confirmPassword'   => 'Xác nhận mật khẩu',
+    'rememberMe'        => 'Lưu tài khoản này',
+    'forgotPassword'    => 'Quên mật khẩu?',
+    'createNewAccount'  => 'Tạo tài khoản mới',
 ];

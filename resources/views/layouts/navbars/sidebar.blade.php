@@ -91,6 +91,11 @@
                         <i class="ni ni-notification-70 text-warning"></i> {{ __('common.sidebar.news') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('stadium.index') }}">
+                        <i class="ni ni-building text-success"></i> {{ __('common.sidebar.stadium') }}
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

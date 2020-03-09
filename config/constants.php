@@ -16,5 +16,11 @@ return [
     ],
     'status' => [
         'success' => '200'
+    ],
+    'stadium' => [
+        'status' => [
+            'opened' => '0',
+            'closed' => '1',
+        ]
     ]
 ];

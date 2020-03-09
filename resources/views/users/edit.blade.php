@@ -41,8 +41,8 @@
                                     <div class="form-control-radio">
                                         @foreach(constants('user.role') as $role)
                                             <div class="custom-control custom-radio custom-control-inline">
-                                                <input name="role" class="custom-control-input" id="role{{ __('user.roles.' . $role) }}" type="radio" value="{{ $role }}"{{ $role == $user->role ? ' checked' : '' }}>
-                                                <label class="custom-control-label" for="role{{ __('user.roles.' . $role) }}">{{ __('user.roles.' . $role) }}</label>
+                                                <input name="role" class="custom-control-input" id="role-{{ $role }}" type="radio" value="{{ $role }}"{{ $role == $user->role ? ' checked' : '' }}>
+                                                <label class="custom-control-label" for="role-{{ $role }}">{{ __('user.roles.' . $role) }}</label>
                                             </div>
                                         @endforeach
                                     </div>

@@ -51,9 +51,9 @@ class User extends Authenticatable
     /**
      * Get the stadiums for user
      */
-    public function stadiums()
+    public function stadium()
     {
-        return $this->hasOne('App\Models\Stadium');
+        return $this->hasOne('App\Models\Stadium', 'owned_by')->withTrashed();
     }
 
     /**

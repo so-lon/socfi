@@ -4,10 +4,11 @@ namespace App\Models;
 
 use App\Models\Concerns\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Stadium extends Model
 {
-    use UsesUuid;
+    use UsesUuid, SoftDeletes;
 
     public $table = 'stadiums';
     /**
@@ -24,7 +25,7 @@ class Stadium extends Model
      */
     public function userOwns()
     {
-        return $this->belongsTo('App\Models\User', 'owned_by');
+        return $this->belongsTo('App\Models\User', 'owned_by')->withTrashed();
     }
 
     /**

@@ -11,11 +11,13 @@ return [
     // Models
     'createdAt' => 'Thời gian tạo',
     'updatedAt' => 'Thời gian cập nhật',
+
     // Titles
     'sidebar' => [
         'dashboard' => 'Dashboard',
-        'user' => 'Quản lý người dùng',
-        'news' => 'Quản lý bảng tin',
+        'user'      => 'Quản lý người dùng',
+        'news'      => 'Quản lý bảng tin',
+        'stadium'   => 'Quản lý sân bóng',
     ],
     'welcome' => 'Xin chào, :name',
 

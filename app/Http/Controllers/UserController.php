@@ -24,16 +24,21 @@ class UserController extends Controller
      * Display a listing of the users with search keywords
      *
      * @param  \App\Http\Requests\SearchRequest  $request
-     * @param  \App\Models\User  $model
      * @return \Illuminate\View\View
      */
     public function search(SearchRequest $request, User $model)
     {
-        $terms = $request->get('terms');
+        $terms      = $request->get('terms');
+        $searchRole = $request->get('searchRole');
+
+        if (isset($searchRole)) {
+            $model = User::where('role', $searchRole);
+        }
 
         return view('users.index', [
-            'users' => $model->withTrashed()->whereLike(['username', 'name'], $terms)->orderByDesc('updated_at')->paginate(5),
-            'terms' => $terms
+            'users'      => $model->withTrashed()->whereLike(['username', 'name'], $terms)->orderByDesc('updated_at')->paginate(5),
+            'terms'      => $terms,
+            'searchRole' => $searchRole,
         ]);
     }
 
@@ -99,6 +104,8 @@ class UserController extends Controller
     {
         if ($user->role == constants('user.role.admin')) {
             return redirect()->route('user.index')->withErrors(__('user.message.undeletable'));
+        } else if ($user->role == constants('user.role.field_owner')) {
+            $user->stadium->delete();
         }
         $user->delete();
 
@@ -113,6 +120,9 @@ class UserController extends Controller
      */
     public function restore(User $user)
     {
+        if ($user->role == constants('user.role.field_owner')) {
+            $user->stadium->restore();
+        }
         $user->restore();
 
         return redirect()->route('user.index')->withStatus(__('User successfully restored.'));

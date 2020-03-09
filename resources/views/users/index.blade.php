@@ -1,5 +1,20 @@
 @extends('layouts.app', ['title' => __('user.management')])
 
+@section('js')
+    <script>
+        var form = $('form')[1];
+        function submitForm(role) {
+            // Create hidden input and append to form
+            $('<input>').attr({
+                type: 'hidden',
+                name: 'searchRole',
+                value: role
+            }).appendTo(form);
+            form.submit();
+        };
+    </script>
+@endsection
+
 @section('content')
     @include('users.partials.header', ['title' => __('user.management')])
 
@@ -9,21 +24,32 @@
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
-                            {{-- Search --}}
-                            <div class="col-4">
+                            <div class="col-lg-9 col-12 mb-2 mb-lg-0">
                                 <form action="{{ route('user.search') }}" method="post">
                                 @csrf
-                                <div class="input-group">
-                                    <input type="text" name="terms" id="input-search" class="form-control border-primary" placeholder="{{ __('common.search') }} .." value="{{ $terms ?? '' }}" autofocus>
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-outline-primary form-inline">
-                                            <i class="fas fa-search"></i>
-                                        </button>
+
+                                    {{-- Search --}}
+                                    <div class="row">
+                                        <div class="col-xl-9 col-lg-7 col-6 input-group">
+                                            <input type="text" name="terms" id="input-search" class="form-control border-primary" placeholder="{{ __('common.search') }} .." value="{{ $terms ?? '' }}" autofocus>
+                                            <div class="input-group-append">
+                                                <button type="button" onclick='submitForm("{{ $searchRole ?? "" }}")' class="btn btn-outline-primary form-inline">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-5 col-6 text-lg-left text-right dropdown" id="ddSearch">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSearch" data-toggle="dropdown">{{ isset($searchRole) ? __('user.roles.' . $searchRole) : __('user.role') }}</button>
+                                            <div class="dropdown-menu">
+                                            @foreach(constants('user.role') as $role)
+                                                <button class="dropdown-item" type="button" onclick='submitForm("{{ $role }}")'>{{ __('user.roles.' . $role) }}</button>
+                                            @endforeach
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
                                 </form>
                             </div>
-                            <div class="col-8 text-right">
+                            <div class="col-lg-3 col-12 text-lg-right">
                                 <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">
                                     <i class="fas fa-plus"></i>
                                     {{ __('user.add') }}

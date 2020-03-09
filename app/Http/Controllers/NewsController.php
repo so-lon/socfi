@@ -16,15 +16,14 @@ class NewsController extends Controller
      */
     public function index(News $model)
     {
-
-        return view('news.index', ['news' => $model->orderByDesc('updated_at')->paginate(5)]);
+        return view('news.index', ['news' => $model->orderByDesc('updated_at')->paginate(6)]);
     }
 
     /**
      * Display a listing of the resource with search keywords
      *
      * @param  \App\Http\Requests\SearchRequest  $request
-     * @param  \App\Models\User  $model
+     * @param  \App\Models\News  $model
      * @return \Illuminate\View\View
      */
     public function search(SearchRequest $request, News $model)

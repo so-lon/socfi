@@ -17,12 +17,15 @@ class CreateStadiumsTable extends Migration
             // Columns
             $table->uuid('id')->primary();
             $table->string('name', 50);
+            $table->string('avatar');
+            $table->string('address');
             $table->time('opening_time');
             $table->time('closing_time');
             $table->unsignedTinyInteger('status')->default(0);
             $table->uuid('owned_by');
             $table->uuid('created_by');
             $table->uuid('updated_by');
+            $table->softDeletes();
             $table->timestamps();
 
             // Foreign Key Constraints
