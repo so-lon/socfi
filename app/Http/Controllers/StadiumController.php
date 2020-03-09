@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Stadium;
+use Stadium;
+use StadiumRequest;
+use SearchRequest;
+use Auth;
 use Illuminate\Http\Request;
 
 class StadiumController extends Controller
@@ -14,7 +17,23 @@ class StadiumController extends Controller
      */
     public function index()
     {
-        //
+        return view('stadium.index', ['stadiums' => Stadium::withTrashed()->orderByDesc('updated_at')->paginate(6)]);
+    }
+
+    /**
+     * Display a listing of the resource with search keywords
+     *
+     * @param  \App\Http\Requests\SearchRequest  $request
+     * @return \Illuminate\View\View
+     */
+    public function search(SearchRequest $request)
+    {
+        $terms = $request->get('terms');
+
+        return view('stadium.index', [
+            'stadiums' => Stadium::withTrashed()->whereLike(['name', 'address'], $terms)->orderByDesc('updated_at')->paginate(6),
+            'terms'    => $terms
+        ]);
     }
 
     /**

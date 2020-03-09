@@ -545,10 +545,6 @@
     padding-top: .625rem;
 }
 
-.bg-white {
-    background: #fff;
-}
-
 .thead-custom {
     background-color: #f6f9fc !important;
     text-align: center;
@@ -569,5 +565,3 @@
     margin: auto;
     font-weight: bold;
 }
-
-/* Quill */

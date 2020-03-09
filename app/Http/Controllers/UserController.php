@@ -24,16 +24,21 @@ class UserController extends Controller
      * Display a listing of the users with search keywords
      *
      * @param  \App\Http\Requests\SearchRequest  $request
-     * @param  \App\Models\User  $model
      * @return \Illuminate\View\View
      */
     public function search(SearchRequest $request, User $model)
     {
-        $terms = $request->get('terms');
+        $terms      = $request->get('terms');
+        $searchRole = $request->get('searchRole');
+
+        if (isset($searchRole)) {
+            $model = User::where('role', $searchRole);
+        }
 
         return view('users.index', [
-            'users' => $model->withTrashed()->whereLike(['username', 'name'], $terms)->orderByDesc('updated_at')->paginate(5),
-            'terms' => $terms
+            'users'      => $model->withTrashed()->whereLike(['username', 'name'], $terms)->orderByDesc('updated_at')->paginate(5),
+            'terms'      => $terms,
+            'searchRole' => $searchRole,
         ]);
     }
 
@@ -79,7 +84,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UserRequest $request, User  $user)
+    public function update(UserRequest $request, User $user)
     {
         $user->update(
             $request->merge(['password' => Hash::make($request->get('password'))])
@@ -99,6 +104,8 @@ class UserController extends Controller
     {
         if ($user->role == constants('user.role.admin')) {
             return redirect()->route('user.index')->withErrors(__('user.message.undeletable'));
+        } else if ($user->role == constants('user.role.field_owner')) {
+            $user->stadium->delete();
         }
         $user->delete();
 
@@ -108,12 +115,15 @@ class UserController extends Controller
     /**
      * Restore the specified user from storage
      *
-     * @param  \App\Models\User  $id
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function restore($id)
+    public function restore(User $user)
     {
-        User::withTrashed()->find($id)->restore();
+        if ($user->role == constants('user.role.field_owner')) {
+            $user->stadium->restore();
+        }
+        $user->restore();
 
         return redirect()->route('user.index')->withStatus(__('User successfully restored.'));
     }
