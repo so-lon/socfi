@@ -30,6 +30,10 @@ Route::group(['middleware' => 'auth'], function () {
 // Route for Admin or Field Owner
 Route::group(['middleware' => 'can:isAdminOrFieldOwner'], function () {
 	Route::get('dashboard', 'HomeController@index')->name('dashboard');
+
+    // Stadium
+    Route::resource('stadium', 'StadiumController');
+    Route::match(['get', 'post'], 'stadium/search', 'StadiumController@search')->name('stadium.search');
 });
 
 // Route for Admin
@@ -42,13 +46,14 @@ Route::group(['middleware' => 'can:isAdmin'], function () {
     // News
     Route::resource('news', 'NewsController');
     Route::match(['get', 'post'], 'news/search', 'NewsController@search')->name('news.search');
-
-    // Stadium
-    Route::resource('stadium', 'StadiumController');
-    Route::match(['get', 'post'], 'stadium/search', 'StadiumController@search')->name('stadium.search');
 });
 
 // Route for Field Owner
+Route::group(['middleware' => 'can:isFieldOwner'], function () {
+    // Field
+    Route::resource('field', 'FieldController');
+    Route::match(['get', 'post'], 'news/search', 'NewsController@search')->name('field.search');
+});
 
 
 // Route for Captain

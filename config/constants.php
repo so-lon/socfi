@@ -3,15 +3,15 @@
 return [
     'user' => [
         'role' => [
-            'admin' => '0',
+            'admin'       => '0',
             'field_owner' => '1',
-            'captain' => '2',
-            'player' => '3',
+            'captain'     => '2',
+            'player'      => '3',
         ],
         'gender' => [
-            'male' => '0',
+            'male'   => '0',
             'female' => '1',
-            'other' => '2',
+            'other'  => '2',
         ],
     ],
     'status' => [
@@ -22,5 +22,11 @@ return [
             'opened' => '0',
             'closed' => '1',
         ]
-    ]
+    ],
+    'field' => [
+        'type' => [
+            '5'  => '0',
+            '7'  => '1',
+        ]
+    ],
 ];

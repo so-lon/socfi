@@ -55,6 +55,7 @@
             </div>
             <!-- Navigation -->
             <ul class="navbar-nav">
+                @can('isAdmin')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard') }}">
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('common.sidebar.dashboard') }}
@@ -96,6 +97,37 @@
                         <i class="ni ni-building text-success"></i> {{ __('common.sidebar.stadium') }}
                     </a>
                 </li>
+                @elsecan('isFieldOwner')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard') }}">
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('common.sidebar.dashboard') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('stadium.index') }}">
+                        <i class="ni ni-calendar-grid-58 text-warning"></i> {{ __('common.sidebar.schedule') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-stadium" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-stadium">
+                        <i class="ni ni-building text-success"></i> {{ __('common.sidebar.stadium') }}
+                    </a>
+                    <div class="collapse show" id="navbar-stadium">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('stadium.index') }}">
+                                    {{ __('common.sidebar.stadiums.information') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('field.create') }}">
+                                    {{ __('common.sidebar.stadiums.createField') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                @endcan
             </ul>
         </div>
     </div>

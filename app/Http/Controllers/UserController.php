@@ -61,7 +61,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request, User $model)
     {
-        $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
+        $model->create($request->merge(['password' => Hash::make($request->get('password')), 'avatar' => 'img/avatar/default.jpg'])->all());
 
         return redirect()->route('user.index')->withStatus(__('User successfully created.'));
     }

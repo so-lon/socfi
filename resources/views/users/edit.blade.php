@@ -144,7 +144,29 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div id="stadium">
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="input-stadium-name">{{ __('stadium.name') }}</label>
+                                                <input type="text" name="stadium-name" id="input-stadium-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('stadium.name') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-opening-time">{{ __('stadium.openingTime') }}</label>
+                                                <input type="time" step="1800" id="opening-time" name="opening_time" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-closing-time">{{ __('stadium.closingTime') }}</label>
+                                                <input type="time" step="1800" id="closing-time" name="closing_time" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4 px-4">{{ __('user.save') }}</button>
                                 </div>

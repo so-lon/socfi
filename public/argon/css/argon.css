@@ -17643,7 +17643,7 @@ a.btn-icon-only
 {
     .navbar-vertical.navbar-expand-md.fixed-left + .main-content
     {
-        margin-left: 250px;
+        margin-left: 300px;
     }
     .navbar-vertical.navbar-expand-md.fixed-right + .main-content
     {
@@ -19463,7 +19463,7 @@ textarea[resize='horizontal']
         overflow-y: auto;
 
         width: 100%;
-        max-width: 250px;
+        max-width: 300px;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
     }
@@ -19557,7 +19557,7 @@ textarea[resize='horizontal']
     }
     .navbar-vertical.navbar-expand-md .navbar-brand-img
     {
-        max-height: 2.5rem;
+        max-height: 3.5rem;
     }
     .navbar-vertical.navbar-expand-md .navbar-user
     {

@@ -1,0 +1,106 @@
+@extends('layouts.app', ['title' => __('field.add')])
+
+@section('js')
+    <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy'
+        });
+    </script>
+@endsection
+
+@section('content')
+    @include('field.partials.header', ['title' => __('field.add')])
+
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col-xl-12 order-xl-1">
+                <div class="card bg-secondary shadow">
+                    <div class="card-header bg-white border-0">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 class="mb-0">{{ __('field.information') }}</h3>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="{{ route('field.index') }}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-chevron-left"></i>
+                                    {{ __('common.backToList') }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="{{ route('field.store') }}" autocomplete="off">
+                            @csrf
+
+                            <div class="pl-lg-4">
+                                {{-- Type --}}
+                                <div class="form-group{{ $errors->has('type') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-name">{{ __('field.type') }}</label>
+                                    <div class="form-control-radio">
+                                        @foreach(constants('field.type') as $type)
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input name="type" class="custom-control-input" id="type-{{ $type }}" type="radio" value="{{ $type }}"{{ $type == constants('field.type.5') ? ' checked' : '' }}>
+                                                <label class="custom-control-label" for="type-{{ $type }}">{{ __('field.types.' . $type) }}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    @if ($errors->has('type'))
+                                        <span class="invalid-feedback" type="alert">
+                                            <strong>{{ $errors->first('type') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                {{-- Name & Opening Time & Closing Time --}}
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                            <label class="form-control-label" for="input-name">{{ __('field.name') }}</label>
+                                            <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('field.name') }}" value="{{ old('name') }}">
+
+                                            @if ($errors->has('name'))
+                                            <span class="invalid-feedback" type="alert">
+                                                <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-opening-time">{{ __('field.openingTime') }}</label>
+                                            <input type="time" step="1800" id="opening-time" name="opening_time" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}">
+
+                                            @if ($errors->has('opening_time'))
+                                            <span class="invalid-feedback" type="alert">
+                                                <strong>{{ $errors->first('opening_time') }}</strong>
+                                            </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-closing-time">{{ __('field.closingTime') }}</label>
+                                            <input type="time" step="1800" id="closing-time" name="closing_time" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}">
+
+                                            @if ($errors->has('closing_time'))
+                                            <span class="invalid-feedback" type="alert">
+                                                <strong>{{ $errors->first('closing_time') }}</strong>
+                                            </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('field.create') }}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @include('layouts.footers.auth')
+    </div>
+@endsection

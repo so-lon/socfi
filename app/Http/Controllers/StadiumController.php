@@ -17,7 +17,15 @@ class StadiumController extends Controller
      */
     public function index()
     {
-        return view('stadium.index', ['stadiums' => Stadium::withTrashed()->orderByDesc('updated_at')->paginate(6)]);
+        if (auth()->user()->role == constants('user.role.admin')) {
+            return view('stadium.index', ['stadiums' => Stadium::withTrashed()->orderByDesc('updated_at')->paginate(6)]);
+        } else {
+            $stadium = Stadium::where('owned_by', auth()->user()->id)->first();
+            return view('stadium.show', [
+                'stadium' => $stadium,
+                'fields'  => $stadium->fields,
+            ]);
+        }
     }
 
     /**
@@ -55,7 +63,10 @@ class StadiumController extends Controller
      */
     public function show(Stadium $stadium)
     {
-        //
+        return view('stadium.show', [
+            'stadium' => $stadium,
+            'fields'  => $stadium->fields,
+        ]);
     }
 
     /**

@@ -72,6 +72,15 @@
                                                 <i class="fas fa-pencil-alt"></i>
                                                 {{ __('news.edit') }}
                                             </a>
+                                            <form action="{{ route('news.destroy', $new) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+
+                                                <button type="submit" class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                    {{ __('news.destroy') }}
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

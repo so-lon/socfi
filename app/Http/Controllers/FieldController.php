@@ -24,7 +24,7 @@ class FieldController extends Controller
      */
     public function create()
     {
-        //
+        return view('field.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class FieldController extends Controller
      */
     public function edit(Field $field)
     {
-        //
+        return view('field.edit', compact('user'));
     }
 
     /**
