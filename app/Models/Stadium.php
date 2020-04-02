@@ -17,7 +17,7 @@ class Stadium extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'opening_time', 'closing_time', 'status', 'owned_by', 'created_by', 'updated_by'
+        'name', 'address', 'map', 'opening_time', 'closing_time', 'status', 'owned_by', 'created_by', 'updated_by'
     ];
 
     /**

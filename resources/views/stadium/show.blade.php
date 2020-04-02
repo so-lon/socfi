@@ -12,16 +12,12 @@
                             <div class="col-8">
                                 <h3 class="mb-0">{{ __('stadium.information') }}</h3>
                             </div>
-                            <div class="col-4 text-right">
-                                <a href="{{ route('field.create') }}" class="btn btn-sm btn-primary">
-                                    <i class="fas fa-plus"></i>
-                                    {{ __('Tao san mini') }}
-                                </a>
+                            {{-- <div class="col-4 text-right">
                                 <a href="{{ route('stadium.edit', $stadium) }}" class="btn btn-sm btn-default">
                                     <i class="fas fa-pencil-alt"></i>
                                     {{ __('stadium.edit') }}
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="card-body bg-white">
@@ -50,7 +46,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div id="map-canvas">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d489.90680909149!2d106.64407560631025!3d10.791811710328254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752eb32bc04e9f%3A0xf9e738d586abab67!2sThe%20Pizza%20Company%20B%C3%A0u%20C%C3%A1t!5e0!3m2!1sen!2s!4v1585650204532!5m2!1sen!2s" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                    {!! $stadium->map !!}
                                 </div>
                             </div>
                         </div>

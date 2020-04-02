@@ -19,6 +19,7 @@ class CreateStadiumsTable extends Migration
             $table->string('name', 50);
             $table->string('avatar');
             $table->string('address');
+            $table->string('map', 500);
             $table->time('opening_time');
             $table->time('closing_time');
             $table->unsignedTinyInteger('status')->default(0);

@@ -6,6 +6,11 @@
         $('.datepicker').datepicker({
             format: 'dd/mm/yyyy'
         });
+        $('input[name="role"]').bind('click', function() {
+            $('input[name="role"]:checked').val() == "{{ constants('user.role.field_owner') }}"
+                ? $('#stadium').addClass('d-block').removeClass('d-none')
+                : $('#stadium').addClass('d-none').removeClass('d-block')
+        });
     </script>
 @endsection
 
@@ -144,27 +149,37 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="stadium">
+                                <div id="stadium" class="d-none">
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                                <label class="form-control-label" for="input-stadium-name">{{ __('stadium.name') }}</label>
-                                                <input type="text" name="stadium-name" id="input-stadium-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('stadium.name') }}">
+                                            <div class="form-group{{ $errors->has('stadium_name') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="input-stadium_name">{{ __('stadium.name') }}</label>
+                                                <input type="text" name="stadium_name" id="input-stadium_name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('stadium.name') }}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
+                                            <div class="form-group{{ $errors->has('address') ? ' has-danger' : '' }}">
+                                                <label class="form-control-label" for="input-address">{{ __('stadium.address') }}</label>
+                                                <input type="text" name="address" id="input-address" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" placeholder="{{ __('stadium.address') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-opening-time">{{ __('stadium.openingTime') }}</label>
                                                 <input type="time" step="1800" id="opening-time" name="opening_time" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-closing-time">{{ __('stadium.closingTime') }}</label>
                                                 <input type="time" step="1800" id="closing-time" name="closing_time" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group{{ $errors->has('map') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-map">{{ __('stadium.map') }}</label>
+                                        <input type="text" name="map" id="input-map" class="form-control{{ $errors->has('map') ? ' is-invalid' : '' }}" placeholder="{{ __('stadium.map') }}">
                                     </div>
                                 </div>
                                 <div class="text-center">

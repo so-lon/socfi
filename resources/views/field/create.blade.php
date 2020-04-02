@@ -3,8 +3,31 @@
 @section('js')
     <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script>
+        var row = 0;
         $('.datepicker').datepicker({
             format: 'dd/mm/yyyy'
+        });
+        $('#add-row').bind('click', function() {
+            $('.table-responsive').find('tbody tr:last').before(
+                '<tr>' +
+                    '<td class="row">' +
+                        '<div class="col-6">' +
+                            '<input type="time" step="1800" id="slot_start[' + row + ']" name="slot_start[' + row + ']" class="form-control">' +
+                        '</div>' +
+                        '<div class="col-6">' +
+                            '<input type="time" step="1800" id="slot_end[' + row + ']" name="slot_end[' + row + ']" class="form-control">' +
+                        '</div>' +
+                    '</td>' +
+                    '<td style="width: 10%"><input type="number" class="form-control" name="price[0][' + row + ']"></td>' +
+                    '<td style="width: 10%"><input type="number" class="form-control" name="price[1][' + row + ']"></td>' +
+                    '<td style="width: 10%"><input type="number" class="form-control" name="price[2][' + row + ']"></td>' +
+                    '<td style="width: 10%"><input type="number" class="form-control" name="price[3][' + row + ']"></td>' +
+                    '<td style="width: 10%"><input type="number" class="form-control" name="price[4][' + row + ']"></td>' +
+                    '<td style="width: 10%"><input type="number" class="form-control" name="price[5][' + row + ']"></td>' +
+                    '<td style="width: 10%"><input type="number" class="form-control" name="price[6][' + row + ']"></td>' +
+                '</tr>'
+            );
+            row++;
         });
     </script>
 @endsection
@@ -90,6 +113,30 @@
                                             @endif
                                         </div>
                                     </div>
+                                </div>
+                                {{-- Price --}}
+                                <div class="table-responsive mt-4 bg-white">
+                                    <table class="table align-items-center table-flush">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">{{ __('slot') }}</th>
+                                                <th scope="col">{{ __('monday') }}</th>
+                                                <th scope="col">{{ __('tuesday') }}</th>
+                                                <th scope="col">{{ __('wednesday') }}</th>
+                                                <th scope="col">{{ __('thursday') }}</th>
+                                                <th scope="col">{{ __('friday') }}</th>
+                                                <th scope="col">{{ __('saturday') }}</th>
+                                                <th scope="col">{{ __('sunday') }}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="8" class="text-center">
+                                                    <button id="add-row" type="button" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4 px-4">{{ __('field.create') }}</button>

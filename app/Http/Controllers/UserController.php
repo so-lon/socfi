@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Stadium;
 use User;
 use UserRequest;
 use SearchRequest;
@@ -61,8 +62,18 @@ class UserController extends Controller
      */
     public function store(UserRequest $request, User $model)
     {
-        $model->create($request->merge(['password' => Hash::make($request->get('password')), 'avatar' => 'img/avatar/default.jpg'])->all());
-
+        $user = $model->create($request->merge(['password' => Hash::make($request->get('password')), 'avatar' => 'img/avatar/default.jpg'])->all());
+        if ($request->get('role') == constants('user.role.field_owner')) {
+            Stadium::create([
+                'name'         => $request->get('stadium_name'),
+                'address'      => $request->get('address'),
+                'opening_time' => $request->get('opening_time'),
+                'closing_time' => $request->get('closing_time'),
+                'owned_by'     => $user->id,
+                'created_by'   => $user->id,
+                'updated_by'   => $user->id,
+            ]);
+        }
         return redirect()->route('user.index')->withStatus(__('User successfully created.'));
     }
 

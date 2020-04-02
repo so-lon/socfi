@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Field;
+use App\Models\PriceForFieldPerHour;
+use App\Models\Stadium;
 use Illuminate\Http\Request;
 
 class FieldController extends Controller
@@ -31,11 +33,34 @@ class FieldController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Field  $model
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Field $model)
     {
-        //
+        $stadium = Stadium::where('owned_by', auth()->user()->id)->first();
+        $field = $model->create($request->merge(['stadium_id' => $stadium->id])->all());
+        $slot_start = $request->get('slot_start');
+        $slot_end   = $request->get('slot_end');
+        $price      = $request->get('price');
+        foreach ($price as $key => $value) {
+            for ($i = 0; $i < sizeof($slot_start); $i++) {
+                if ($value[$i]) {
+                    PriceForFieldPerHour::create([
+                        'stadium_id'     => $stadium->id,
+                        'field_id'       => $field->id,
+                        'slot_start'     => $slot_start[$i],
+                        'slot_end'       => $slot_end[$i],
+                        'days_of_week'   => $key,
+                        'price_per_hour' => $value[$i],
+                    ]);
+                }
+            }
+        }
+        return view('stadium.show', [
+            'stadium' => $stadium,
+            'fields'  => $stadium->fields,
+        ]);
     }
 
     /**
