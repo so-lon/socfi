@@ -29,9 +29,9 @@ class Field extends Model
     /**
      * Get the price for field
      */
-    public function price()
+    public function prices()
     {
-        return $this->hasOne('App\Models\PriceForFieldPerHour');
+        return $this->hasMany('App\Models\PriceForFieldPerHour');
     }
 
     /**

@@ -82,7 +82,10 @@ class FieldController extends Controller
      */
     public function edit(Field $field)
     {
-        return view('field.edit', compact('user'));
+        return view('field.edit', [
+            'field'  => $field,
+            'prices' => $field->prices->groupBy('slot_start'),
+        ]);
     }
 
     /**
@@ -94,7 +97,30 @@ class FieldController extends Controller
      */
     public function update(Request $request, Field $field)
     {
-        //
+        $stadium = Stadium::where('owned_by', auth()->user()->id)->first();
+        $field->update($request->all());
+        PriceForFieldPerHour::where('field_id', $field->id)->delete();
+        $slot_start = $request->get('slot_start');
+        $slot_end   = $request->get('slot_end');
+        $price      = $request->get('price');
+        foreach ($price as $key => $value) {
+            for ($i = 0; $i < sizeof($slot_start); $i++) {
+                if ($value[$i]) {
+                    PriceForFieldPerHour::create([
+                        'stadium_id'     => $stadium->id,
+                        'field_id'       => $field->id,
+                        'slot_start'     => $slot_start[$i],
+                        'slot_end'       => $slot_end[$i],
+                        'days_of_week'   => $key,
+                        'price_per_hour' => $value[$i],
+                    ]);
+                }
+            }
+        }
+        return view('stadium.show', [
+            'stadium' => $stadium,
+            'fields'  => $stadium->fields,
+        ]);
     }
 
     /**
@@ -105,6 +131,11 @@ class FieldController extends Controller
      */
     public function destroy(Field $field)
     {
-        //
+        $stadium = Stadium::where('owned_by', auth()->user()->id)->first();
+        $field->delete();
+        return view('stadium.show', [
+            'stadium' => $stadium,
+            'fields'  => $stadium->fields,
+        ]);
     }
 }
