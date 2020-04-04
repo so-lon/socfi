@@ -57,10 +57,7 @@ class FieldController extends Controller
                 }
             }
         }
-        return view('stadium.show', [
-            'stadium' => $stadium,
-            'fields'  => $stadium->fields,
-        ]);
+        return redirect()->route('stadium.show')->withStatus(__('Field successfully created.'));
     }
 
     /**
@@ -117,10 +114,7 @@ class FieldController extends Controller
                 }
             }
         }
-        return view('stadium.show', [
-            'stadium' => $stadium,
-            'fields'  => $stadium->fields,
-        ]);
+        return redirect()->route('stadium.show')->withStatus(__('Field successfully updated.'));
     }
 
     /**
@@ -133,9 +127,6 @@ class FieldController extends Controller
     {
         $stadium = Stadium::where('owned_by', auth()->user()->id)->first();
         $field->delete();
-        return view('stadium.show', [
-            'stadium' => $stadium,
-            'fields'  => $stadium->fields,
-        ]);
+        return redirect()->route('stadium.show')->withStatus(__('Field successfully deleted.'));
     }
 }

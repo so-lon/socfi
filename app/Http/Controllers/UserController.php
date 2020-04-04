@@ -67,6 +67,7 @@ class UserController extends Controller
             Stadium::create([
                 'name'         => $request->get('stadium_name'),
                 'address'      => $request->get('address'),
+                'map'          => $request->get('map'),
                 'opening_time' => $request->get('opening_time'),
                 'closing_time' => $request->get('closing_time'),
                 'owned_by'     => $user->id,

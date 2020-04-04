@@ -15,11 +15,18 @@ class Promotion extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'usable_from', 'usable_to', 'promotion_value', 'created_by', 'updated_by'
+        'code', 'usable_from', 'usable_to', 'days_of_week', 'value', 'created_by', 'updated_by'
     ];
 
     /**
-     * Get the user that created the price.
+     * Get the stadium that has the promotion.
+     */
+    public function stadiums() {
+        return $this->belongsToMany('App\Models\Stadium', 'stadium_promotion', 'promotion_id', 'stadium_id');
+    }
+
+    /**
+     * Get the user that created the promotion.
      */
     public function userCreated()
     {
@@ -27,7 +34,7 @@ class Promotion extends Model
     }
 
     /**
-     * Get the user that created the price.
+     * Get the user that created the promotion.
      */
     public function userUpdated()
     {

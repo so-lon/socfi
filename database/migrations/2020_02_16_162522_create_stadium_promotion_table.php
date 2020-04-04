@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePromotionsForStadiumsTable extends Migration
+class CreateStadiumPromotionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreatePromotionsForStadiumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('promotions_for_stadiums', function (Blueprint $table) {
+        Schema::create('stadium_promotion', function (Blueprint $table) {
             // Columns
-            $table->uuid('promotion_id');
             $table->uuid('stadium_id');
+            $table->uuid('promotion_id');
 
             // Primary Keys
-            $table->primary(['promotion_id', 'stadium_id']);
+            $table->primary(['stadium_id', 'promotion_id']);
 
             // Foreign Key Constraints
-            $table->foreign('promotion_id')->references('id')->on('promotions')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('stadium_id')->references('id')->on('stadiums')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('promotion_id')->references('id')->on('promotions')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

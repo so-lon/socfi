@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Promotion;
+use App\Models\Stadium;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PromotionController extends Controller
 {
@@ -14,7 +16,7 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        //
+        return view('promotion.index', ['promotions' => Promotion::orderByDesc('updated_at')->paginate(5)]);
     }
 
     /**
@@ -24,7 +26,7 @@ class PromotionController extends Controller
      */
     public function create()
     {
-        //
+        return view('promotion.create');
     }
 
     /**
@@ -35,7 +37,18 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::transaction(function() use($request) {
+            $stadium = Stadium::where('owned_by', auth()->user()->id)->first();
+            $promotion = Promotion::create($request->merge([
+                'usable_from'  => date_create_from_format('d/m/Y', $request->get('usable_from'))->format('Y-m-d'),
+                'usable_to'    => date_create_from_format('d/m/Y', $request->get('usable_to'))->format('Y-m-d'),
+                'days_of_week' => implode(':', $request->get('days_of_week')),
+                'created_by'   => auth()->user()->id,
+                'updated_by'   => auth()->user()->id,
+            ])->all());
+            $promotion->stadiums()->attach($stadium->id);
+        });
+        return redirect()->route('promotion.index')->withStatus(__('Promotion successfully created.'));
     }
 
     /**

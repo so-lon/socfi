@@ -34,6 +34,10 @@ Route::group(['middleware' => 'can:isAdminOrFieldOwner'], function () {
     // Stadium
     Route::resource('stadium', 'StadiumController');
     Route::match(['get', 'post'], 'stadium/search', 'StadiumController@search')->name('stadium.search');
+
+    // Promotion
+    Route::resource('promotion', 'PromotionController');
+    Route::match(['get', 'post'], 'promotion/search', 'PromotionController@search')->name('promotion.search');
 });
 
 // Route for Admin

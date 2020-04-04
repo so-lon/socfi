@@ -17,9 +17,10 @@ class CreatePromotionsTable extends Migration
             // Columns
             $table->uuid('id')->primary();
             $table->uuid('code');
-            $table->time('usable_from');
-            $table->time('usable_to');
-            $table->float('promotion_value');
+            $table->timestamp('usable_from');
+            $table->timestamp('usable_to');
+            $table->string('days_of_week');
+            $table->float('value');
             $table->uuid('created_by');
             $table->uuid('updated_by');
             $table->timestamps();
