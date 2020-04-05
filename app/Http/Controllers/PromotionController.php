@@ -48,7 +48,7 @@ class PromotionController extends Controller
             ])->all());
             $promotion->stadiums()->attach($stadium->id);
         });
-        return redirect()->route('promotion.index')->withStatus(__('Promotion successfully created.'));
+        return redirect()->route('promotion.index')->withStatus(__('promotion.message.success.create'));
     }
 
     /**
@@ -70,7 +70,10 @@ class PromotionController extends Controller
      */
     public function edit(Promotion $promotion)
     {
-        //
+        $promotion->usable_from = date('d/m/Y', strtotime($promotion->usable_from));
+        $promotion->usable_to = date('d/m/Y', strtotime($promotion->usable_to));
+        $promotion->days_of_week = explode(':', $promotion->days_of_week);
+        return view('promotion.edit', compact('promotion'));
     }
 
     /**
@@ -82,7 +85,13 @@ class PromotionController extends Controller
      */
     public function update(Request $request, Promotion $promotion)
     {
-        //
+        $promotion->update($request->merge([
+            'usable_from'  => date_create_from_format('d/m/Y', $request->get('usable_from'))->format('Y-m-d'),
+            'usable_to'    => date_create_from_format('d/m/Y', $request->get('usable_to'))->format('Y-m-d'),
+            'days_of_week' => implode(':', $request->get('days_of_week')),
+            'updated_by'   => auth()->user()->id,
+        ])->all());
+        return redirect()->route('promotion.index')->withStatus(__('promotion.message.success.update'));
     }
 
     /**
@@ -93,6 +102,7 @@ class PromotionController extends Controller
      */
     public function destroy(Promotion $promotion)
     {
-        //
+        $promotion->delete();
+        return redirect()->route('promotion.index')->withStatus(__('promotion.message.success.delete'));
     }
 }

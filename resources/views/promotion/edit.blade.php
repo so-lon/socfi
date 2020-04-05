@@ -30,8 +30,9 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('promotion.store') }}" autocomplete="off">
+                        <form method="post" action="{{ route('promotion.update', $promotion) }}" autocomplete="off">
                             @csrf
+                            @method('put')
 
                             <div class="pl-lg-4">
                                 {{-- Code & Value & Days of Week--}}
@@ -39,7 +40,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group{{ $errors->has('code') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-code">{{ __('promotion.code') }}</label>
-                                            <input type="text" name="code" id="input-code" class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}" placeholder="{{ __('promotion.code') }}" value="{{ old('promotion.code') }}" autofocus>
+                                            <input type="text" name="code" id="input-code" class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}" placeholder="{{ __('promotion.code') }}" value="{{ $promotion->code }}" autofocus>
 
                                             @if ($errors->has('code'))
                                                 <span class="invalid-feedback" role="alert">
@@ -51,7 +52,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group{{ $errors->has('value') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-value">{{ __('promotion.value') }}</label>
-                                            <input type="number" name="value" id="input-value" class="form-control{{ $errors->has('value') ? ' is-invalid' : '' }}" placeholder="{{ __('promotion.value') }}" value="{{ old('promotion.value') }}" autofocus>
+                                            <input type="number" name="value" id="input-value" class="form-control{{ $errors->has('value') ? ' is-invalid' : '' }}" placeholder="{{ __('promotion.value') }}" value="{{ $promotion->value }}">
 
                                             @if ($errors->has('value'))
                                                 <span class="invalid-feedback" role="alert">
@@ -67,7 +68,7 @@
                                                 @foreach(constants('days_of_week') as $days_of_week)
                                                     @if ($loop->index != 0)
                                                         <div class="custom-control custom-checkbox custom-control-inline">
-                                                            <input name="days_of_week[]" class="custom-control-input" id="days_of_week-{{ $days_of_week }}" type="checkbox" value="{{ $days_of_week }}" checked>
+                                                            <input name="days_of_week[]" class="custom-control-input" id="days_of_week-{{ $days_of_week }}" type="checkbox" value="{{ $days_of_week }}"{{ in_array($days_of_week, $promotion->days_of_week) ? ' checked': '' }}>
                                                             <label class="custom-control-label" for="days_of_week-{{ $days_of_week }}">{{ __('common.days_of_week.' . $days_of_week) }}</label>
                                                         </div>
                                                     @endif
@@ -88,18 +89,18 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-usable_from">{{ __('promotion.usableFrom') }}</label>
-                                            <input class="form-control bg-white" id="input-usable_from" name="usable_from" readonly type="text" value="{{ now()->format('d/m/Y') }}">
+                                            <input class="form-control bg-white" id="input-usable_from" name="usable_from" readonly type="text" value="{{ $promotion->usable_from }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-usable_to">{{ __('promotion.usableTo') }}</label>
-                                            <input class="form-control bg-white" id="input-usable_to" name="usable_to" readonly type="text" value="{{ now()->format('d/m/Y') }}">
+                                            <input class="form-control bg-white" id="input-usable_to" name="usable_to" readonly type="text" value="{{ $promotion->usable_to }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('common.create') }}</button>
+                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('common.update') }}</button>
                                 </div>
                             </div>
                         </form>

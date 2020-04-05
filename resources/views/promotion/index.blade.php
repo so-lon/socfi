@@ -63,6 +63,7 @@
                                     <th scope="col">{{ __('promotion.days_of_week') }}</th>
                                     <th scope="col">{{ __('promotion.value') }}</th>
                                     <th scope="col">{{ __('common.updated_at') }}</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -86,6 +87,21 @@
                                     @endif
                                     <td>{{ $promotion->value }}</td>
                                     <td>{{ $promotion->updated_at->format('d/m/Y H:i') }}</td>
+                                    <td class="text-right">
+                                        <form action="{{ route('promotion.destroy', $promotion) }}" method="post">
+                                            @csrf
+                                            @method('delete')
+
+                                            <a href="{{ route('promotion.edit', $promotion) }}" class="btn btn-sm btn-default">
+                                                <i class="fas fa-pencil-alt"></i>
+                                                {{ __('common.edit') }}
+                                            </a>
+                                            <button type="submit" class="btn btn-sm btn-danger">
+                                                <i class="fas fa-trash-alt"></i>
+                                                {{ __('common.delete') }}
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
