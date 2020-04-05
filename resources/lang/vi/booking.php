@@ -4,18 +4,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Field Language Lines
+    | Booking Language Lines
     |--------------------------------------------------------------------------
     */
 
     // Models
-    'name' => 'Tên',
-    'type' => 'Loại sân',
-    'types' => [
-        '0'  => 'Sân 5',
-        '1'  => 'Sân 7',
-    ],
 
     // Titles
-    'create' => 'Tạo sân mini'
+    'management' => 'Quản lý đặt sân',
+    'create'     => 'Tạo đặt sân mới',
 ];

@@ -18,7 +18,7 @@ class StadiumController extends Controller
     public function index()
     {
         if (auth()->user()->role == constants('user.role.admin')) {
-            return view('stadium.index', ['stadiums' => Stadium::withTrashed()->orderByDesc('updated_at')->paginate(6)]);
+            return view('stadium.index', ['stadiums' => Stadium::withTrashed()->orderByDesc('updated_at')->paginate(5)]);
         } else {
             $stadium = Stadium::where('owned_by', auth()->user()->id)->first();
             return view('stadium.show', [

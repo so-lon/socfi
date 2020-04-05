@@ -16,7 +16,7 @@
 @endsection
 
 @section('content')
-    @include('users.partials.header', ['title' => __('user.management')])
+    @include('layouts.headers.header', ['title' => __('user.management')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -25,10 +25,10 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-lg-9 col-12 mb-2 mb-lg-0">
+                                {{-- Search --}}
                                 <form action="{{ route('user.search') }}" method="post">
-                                @csrf
+                                    @csrf
 
-                                    {{-- Search --}}
                                     <div class="row">
                                         <div class="col-xl-9 col-lg-7 col-6 input-group">
                                             <input type="text" name="terms" id="input-search" class="form-control border-primary" placeholder="{{ __('common.search') }} .." value="{{ $terms ?? '' }}" autofocus>
@@ -52,7 +52,7 @@
                             <div class="col-lg-3 col-12 text-lg-right">
                                 <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">
                                     <i class="fas fa-plus"></i>
-                                    {{ __('user.add') }}
+                                    {{ __('user.create') }}
                                 </a>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                                     <th scope="col">{{ __('user.name') }}</th>
                                     <th scope="col">{{ __('user.role') }}</th>
                                     <th scope="col">{{ __('user.active') }}</th>
-                                    <th scope="col">{{ __('user.updatedAt') }}</th>
+                                    <th scope="col">{{ __('common.updated_at') }}</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -116,7 +116,7 @@
                                         <td class="text-right">
                                             <a href="{{ $user->trashed() ? '#' : ($user->id != auth()->id() ? route('user.edit', $user->username) : route('profile.edit')) }}" class="btn btn-sm btn-default{{ $user->trashed() ? ' disabled' :'' }}">
                                                 <i class="fas fa-pencil-alt"></i>
-                                                {{ __('user.edit') }}
+                                                {{ __('common.edit') }}
                                             </a>
                                         </td>
                                     </tr>

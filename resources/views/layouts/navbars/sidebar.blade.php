@@ -58,7 +58,7 @@
                 @can('isAdmin')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('common.sidebar.dashboard') }}
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('common.sidebar.revenue') }}
                     </a>
                 </li>
                 <li class="nav-item">
@@ -79,11 +79,11 @@
                 @elsecan('isFieldOwner')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('common.sidebar.dashboard') }}
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('common.sidebar.revenue') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('stadium.index') }}">
+                    <a class="nav-link" href="{{ route('schedule') }}">
                         <i class="ni ni-calendar-grid-58 text-warning"></i> {{ __('common.sidebar.schedule') }}
                     </a>
                 </li>

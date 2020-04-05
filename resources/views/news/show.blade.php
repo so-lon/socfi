@@ -1,7 +1,7 @@
-@extends('layouts.app', ['title' => __('news.add')])
+@extends('layouts.app', ['title' => __('news.create')])
 
 @section('content')
-    @include('news.partials.header', ['title' => __('news.add')])
+    @include('layouts.headers.header', ['title' => __('news.create')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -15,7 +15,7 @@
                             <div class="col-4 text-right">
                                 <a href="{{ route('news.index') }}" class="btn btn-sm btn-primary">
                                     <i class="fas fa-chevron-left"></i>
-                                    {{ __('common.backToList') }}
+                                    {{ __('common.back') }}
                                 </a>
                                 <a href="{{ route('news.edit', $news) }}" class="btn btn-sm btn-default">
                                     <i class="fas fa-pencil-alt"></i>

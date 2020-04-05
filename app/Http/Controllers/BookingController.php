@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Stadium;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -14,7 +15,20 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $stadium = Stadium::where('owned_by', auth()->user()->id)->first();
+        $fields  = $stadium->fields;
+
+        $slots = [];
+        $interval = strtotime($stadium->closing_time) - strtotime($stadium->opening_time);
+        if ($interval < 0) $interval += 86400;
+        for ($i = 0; $i <= $interval; $i += 1800) {
+            array_push($slots, date("h:i A", strtotime($stadium->opening_time) + $i));
+        }
+        return view('schedule', [
+            'stadium' => $stadium,
+            'fields'  => $fields,
+            'slots'   => $slots,
+        ]);
     }
 
     /**
@@ -24,7 +38,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        return view('booking.create');
     }
 
     /**

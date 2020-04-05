@@ -9,16 +9,16 @@ return [
     */
 
     // Models
-    'users'           => 'Người dùng',
-    'username'        => 'Tên tài khoản',
-    'name'            => 'Họ tên',
-    'password'        => 'Mật khẩu',
-    'confirmPassword' => 'Xác nhận mật khẩu',
-    'email'           => 'Email',
-    'phone'           => 'Số điện thoại',
-    'birthday'        => 'Ngày sinh',
-    'gender'          => 'Giới tính',
-    'genders'         => [
+    'users'            => 'Người dùng',
+    'username'         => 'Tên tài khoản',
+    'name'             => 'Họ tên',
+    'password'         => 'Mật khẩu',
+    'confirm_password' => 'Xác nhận mật khẩu',
+    'email'            => 'Email',
+    'phone'            => 'Số điện thoại',
+    'birthday'         => 'Ngày sinh',
+    'gender'           => 'Giới tính',
+    'genders'          => [
         '0' => 'Nam',
         '1' => 'Nữ',
         '2' => 'Khác',
@@ -33,13 +33,10 @@ return [
     ],
 
     // Titles
-    'add'         => 'Tạo tài khoản',
-    'edit'        => 'Chỉnh sửa',
-    'management'  => 'Quản lý người dùng',
+    'management'  => 'Quản lý tài khoản',
     'list'        => 'Danh sách tài khoản',
     'information' => 'Thông tin tài khoản',
-    'create'      => 'Tạo',
-    'save'        => 'Lưu',
+    'create'      => 'Tạo tài khoản mới',
 
     // Messages
     'message' => [

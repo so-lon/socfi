@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('user.add')])
+@extends('layouts.app', ['title' => __('user.create')])
 
 @section('js')
     <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')
-    @include('users.partials.header', ['title' => __('user.add')])
+    @include('layouts.headers.header', ['title' => __('user.create')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -29,7 +29,7 @@
                             <div class="col-4 text-right">
                                 <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">
                                     <i class="fas fa-chevron-left"></i>
-                                    {{ __('common.backToList') }}
+                                    {{ __('common.back') }}
                                 </a>
                             </div>
                         </div>
@@ -143,8 +143,8 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-password-confirmation">{{ __('user.confirmPassword') }}</label>
-                                            <input type="password" name="password_confirmation" id="input-password-confirmation" class="form-control" placeholder="{{ __('user.confirmPassword') }}">
+                                            <label class="form-control-label" for="input-password-confirmation">{{ __('user.confirm_password') }}</label>
+                                            <input type="password" name="password_confirmation" id="input-password-confirmation" class="form-control" placeholder="{{ __('user.confirm_password') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('user.create') }}</button>
+                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('common.create') }}</button>
                                 </div>
                             </div>
                         </form>

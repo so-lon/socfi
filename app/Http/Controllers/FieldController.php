@@ -43,21 +43,23 @@ class FieldController extends Controller
         $slot_start = $request->get('slot_start');
         $slot_end   = $request->get('slot_end');
         $price      = $request->get('price');
-        foreach ($price as $key => $value) {
-            for ($i = 0; $i < sizeof($slot_start); $i++) {
-                if ($value[$i]) {
-                    PriceForFieldPerHour::create([
-                        'stadium_id'     => $stadium->id,
-                        'field_id'       => $field->id,
-                        'slot_start'     => $slot_start[$i],
-                        'slot_end'       => $slot_end[$i],
-                        'days_of_week'   => $key,
-                        'price_per_hour' => $value[$i],
-                    ]);
+        if ($price) {
+            foreach ($price as $key => $value) {
+                for ($i = 0; $i < sizeof($slot_start); $i++) {
+                    if ($value[$i]) {
+                        PriceForFieldPerHour::create([
+                            'stadium_id'     => $stadium->id,
+                            'field_id'       => $field->id,
+                            'slot_start'     => $slot_start[$i],
+                            'slot_end'       => $slot_end[$i],
+                            'days_of_week'   => $key,
+                            'price_per_hour' => $value[$i],
+                        ]);
+                    }
                 }
             }
         }
-        return redirect()->route('stadium.show')->withStatus(__('Field successfully created.'));
+        return redirect()->route('stadium.index')->withStatus(__('Field successfully created.'));
     }
 
     /**
@@ -100,21 +102,23 @@ class FieldController extends Controller
         $slot_start = $request->get('slot_start');
         $slot_end   = $request->get('slot_end');
         $price      = $request->get('price');
-        foreach ($price as $key => $value) {
-            for ($i = 0; $i < sizeof($slot_start); $i++) {
-                if ($value[$i]) {
-                    PriceForFieldPerHour::create([
-                        'stadium_id'     => $stadium->id,
-                        'field_id'       => $field->id,
-                        'slot_start'     => $slot_start[$i],
-                        'slot_end'       => $slot_end[$i],
-                        'days_of_week'   => $key,
-                        'price_per_hour' => $value[$i],
-                    ]);
+        if ($price) {
+            foreach ($price as $key => $value) {
+                for ($i = 0; $i < sizeof($slot_start); $i++) {
+                    if ($value[$i]) {
+                        PriceForFieldPerHour::create([
+                            'stadium_id'     => $stadium->id,
+                            'field_id'       => $field->id,
+                            'slot_start'     => $slot_start[$i],
+                            'slot_end'       => $slot_end[$i],
+                            'days_of_week'   => $key,
+                            'price_per_hour' => $value[$i],
+                        ]);
+                    }
                 }
             }
         }
-        return redirect()->route('stadium.show')->withStatus(__('Field successfully updated.'));
+        return redirect()->route('stadium.index')->withStatus(__('Field successfully updated.'));
     }
 
     /**

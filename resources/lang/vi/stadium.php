@@ -13,6 +13,9 @@ return [
         'opened'  => 'Đang hoạt động',
         'closed'  => 'Đóng cửa',
         'deleted' => 'Đã xóa',
-    ]
-    // Title
+    ],
+
+    // Titles
+    'management'  => 'Quản lý sân bóng',
+    'information' => 'Thông tin sân bóng',
 ];

@@ -38,6 +38,7 @@ Route::group(['middleware' => 'can:isAdminOrFieldOwner'], function () {
     // Promotion
     Route::resource('promotion', 'PromotionController');
     Route::match(['get', 'post'], 'promotion/search', 'PromotionController@search')->name('promotion.search');
+    Route::get('schedule', 'BookingController@index')->name('schedule');
 });
 
 // Route for Admin
@@ -56,7 +57,9 @@ Route::group(['middleware' => 'can:isAdmin'], function () {
 Route::group(['middleware' => 'can:isFieldOwner'], function () {
     // Field
     Route::resource('field', 'FieldController');
-    Route::match(['get', 'post'], 'news/search', 'NewsController@search')->name('field.search');
+
+    // Booking
+    Route::resource('booking', 'BookingController');
 });
 
 

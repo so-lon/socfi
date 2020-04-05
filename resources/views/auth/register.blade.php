@@ -51,12 +51,12 @@
                         @endif
                     </div>
                     <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                        <label class="form-control-label" for="username">{{ __('auth.password') }}</label>
+                        <label class="form-control-label" for="username">{{ __('user.password') }}</label>
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                             </div>
-                            <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('auth.password') }}" type="password" name="password">
+                            <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('user.password') }}" type="password" name="password">
                         </div>
                         @if ($errors->has('password'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -65,12 +65,12 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label" for="username">{{ __('auth.confirmPassword') }}</label>
+                        <label class="form-control-label" for="username">{{ __('user.confirm_password') }}</label>
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                             </div>
-                            <input class="form-control" placeholder="{{ __('auth.confirmPassword') }}" type="password" name="password_confirmation">
+                            <input class="form-control" placeholder="{{ __('user.confirm_password') }}" type="password" name="password_confirmation">
                         </div>
                     </div>
                     <div class="progress-info">

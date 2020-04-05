@@ -16,7 +16,8 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             // Columns
             $table->uuid('id')->primary();
-            $table->uuid('user_id');
+            $table->uuid('user_id')->nullable();
+            $table->string('name', 50)->nullable();
             $table->uuid('field_id');
             $table->float('price');
             $table->datetime('start_datetime');

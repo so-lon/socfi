@@ -1,7 +1,7 @@
-@extends('layouts.app', ['title' => __('stadium.add')])
+@extends('layouts.app', ['title' => __('stadium.management')])
 
 @section('content')
-    @include('stadium.partials.header', ['title' => __('stadium.add')])
+    @include('layouts.headers.header', ['title' => __('stadium.management')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -55,22 +55,18 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">{{ __('field.name') }}</th>
-                                        <th scope="col">{{ __('field.openingTime') }}</th>
-                                        <th scope="col">{{ __('field.closingTime') }}</th>
+                                        <th scope="col">{{ __('common.opening_time') }}</th>
+                                        <th scope="col">{{ __('common.closing_time') }}</th>
                                         <th scope="col">{{ __('field.type') }}</th>
-                                        <th scope="col">{{ __('field.condition') }}</th>
-                                        <th scope="col">{{ __('field.updatedAt') }}</th>
+                                        <th scope="col">{{ __('common.condition') }}</th>
+                                        <th scope="col">{{ __('common.updated_at') }}</th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($fields as $field)
                                         <tr>
-                                            <td>
-                                                <a href="{{ route('field.edit', $field) }}">
-                                                    {{ $field->name }}
-                                                </a>
-                                            </td>
+                                            <td>{{ $field->name }}</td>
                                             <td>{{ $field->opening_time }}</td>
                                             <td>{{ $field->closing_time }}</td>
                                             <td>{{ $field->type }}</td>
@@ -81,9 +77,13 @@
                                                     @csrf
                                                     @method('delete')
 
+                                                    <a href="{{ route('field.edit', $field) }}" class="btn btn-sm btn-default">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        {{ __('common.edit') }}
+                                                    </a>
                                                     <button type="submit" class="btn btn-sm btn-danger">
                                                         <i class="fas fa-trash-alt"></i>
-                                                        {{ __('field.destroy') }}
+                                                        {{ __('common.delete') }}
                                                     </button>
                                                 </form>
                                             </td>

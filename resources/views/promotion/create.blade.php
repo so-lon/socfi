@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    @include('promotion.partials.header', ['title' => __('promotion.add')])
+    @include('layouts.headers.header', ['title' => __('promotion.add')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -24,7 +24,7 @@
                             <div class="col-4 text-right">
                                 <a href="{{ route('promotion.index') }}" class="btn btn-sm btn-primary">
                                     <i class="fas fa-chevron-left"></i>
-                                    {{ __('common.backToList') }}
+                                    {{ __('common.back') }}
                                 </a>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                                     @if ($loop->index != 0)
                                                         <div class="custom-control custom-checkbox custom-control-inline">
                                                             <input name="days_of_week[]" class="custom-control-input" id="days_of_week-{{ $days_of_week }}" type="checkbox" value="{{ $days_of_week }}" checked>
-                                                            <label class="custom-control-label" for="days_of_week-{{ $days_of_week }}">{{ __('common.daysOfWeek.' . $days_of_week) }}</label>
+                                                            <label class="custom-control-label" for="days_of_week-{{ $days_of_week }}">{{ __('common.days_of_week.' . $days_of_week) }}</label>
                                                         </div>
                                                     @endif
                                                 @endforeach
@@ -87,19 +87,19 @@
                                 <div class="input-daterange datepicker row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-usable_from">{{ __('promotion.usableFrom') }}</label>
+                                            <label class="form-control-label" for="input-usable_from">{{ __('promotion.usable_from') }}</label>
                                             <input class="form-control bg-white" id="input-usable_from" name="usable_from" readonly type="text" value="{{ now()->format('d/m/Y') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-usable_to">{{ __('promotion.usableTo') }}</label>
+                                            <label class="form-control-label" for="input-usable_to">{{ __('promotion.usable_to') }}</label>
                                             <input class="form-control bg-white" id="input-usable_to" name="usable_to" readonly type="text" value="{{ now()->format('d/m/Y') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('promotion.create') }}</button>
+                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('common.create') }}</button>
                                 </div>
                             </div>
                         </form>

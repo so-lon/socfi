@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('stadium.management')])
 
 @section('content')
-    @include('stadium.partials.header', ['title' => __('stadium.management')])
+    @include('layouts.headers.header', ['title' => __('stadium.management')])
 
     <div class="container-fluid mt--7">
         <div class="row mt-8 mb-4">

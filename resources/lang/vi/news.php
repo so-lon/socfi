@@ -8,7 +8,19 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    // Models
+    // Titles
+    'management'  => 'Quản lý tin tức',
+    'list'        => 'Danh sách tin tức',
+    'information' => 'Chi tiết',
+    'create'      => 'Tạo tin mới',
+    'title'       => 'Tiêu đề',
+    'content'     => 'Nội dung',
 
-    // Title
+    'message' => [
+        'success' => [
+            'create' => 'Tạo tin mới thành công',
+            'delete' => 'Xóa tin tức thành công',
+            'update' => 'Cập nhật tin tức thành công',
+        ]
+    ]
 ];

@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('promotion.management')])
 
 @section('content')
-    @include('promotion.partials.header', ['title' => __('promotion.management')])
+    @include('layouts.headers.header', ['title' => __('promotion.management')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -28,7 +28,7 @@
                             <div class="col-lg-3 col-12 text-lg-right">
                                 <a href="{{ route('promotion.create') }}" class="btn btn-sm btn-primary">
                                     <i class="fas fa-plus"></i>
-                                    {{ __('promotion.add') }}
+                                    {{ __('promotion.create') }}
                                 </a>
                             </div>
                         </div>
@@ -58,11 +58,11 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">{{ __('promotion.code') }}</th>
-                                    <th scope="col">{{ __('promotion.usableFrom') }}</th>
-                                    <th scope="col">{{ __('promotion.usableTo') }}</th>
-                                    <th scope="col">{{ __('promotion.daysOfWeek') }}</th>
+                                    <th scope="col">{{ __('promotion.usable_from') }}</th>
+                                    <th scope="col">{{ __('promotion.usable_to') }}</th>
+                                    <th scope="col">{{ __('promotion.days_of_week') }}</th>
                                     <th scope="col">{{ __('promotion.value') }}</th>
-                                    <th scope="col">{{ __('promotion.updatedAt') }}</th>
+                                    <th scope="col">{{ __('common.updated_at') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,14 +72,14 @@
                                     <td>{{ date('d/m/Y', strtotime($promotion->usable_from)) }}</td>
                                     <td>{{ date('d/m/Y', strtotime($promotion->usable_to)) }}</td>
                                     @if ($promotion->days_of_week == constants('days_of_week.everyday'))
-                                        <td>{{ __('common.daysOfWeek.' . $promotion->days_of_week) }}</td>
+                                        <td>{{ __('common.days_of_week.' . $promotion->days_of_week) }}</td>
                                     @else
                                         <td>
                                         @foreach (explode(':', $promotion->days_of_week) as $dow)
                                             @if ($loop->index == 0)
-                                            {{ __('common.daysOfWeek.' . $dow) }}
+                                            {{ __('common.days_of_week.' . $dow) }}
                                             @else
-                                            & {{ __('common.daysOfWeek.' . $dow) }}
+                                            & {{ __('common.days_of_week.' . $dow) }}
                                             @endif
                                         @endforeach
                                         </td>

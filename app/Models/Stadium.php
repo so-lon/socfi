@@ -49,6 +49,6 @@ class Stadium extends Model
      */
     public function fields()
     {
-        return $this->hasMany('App\Models\Field');
+        return $this->hasMany('App\Models\Field')->orderBy('name');
     }
 }
