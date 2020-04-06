@@ -18,6 +18,7 @@ class CreateBookingsTable extends Migration
             $table->uuid('id')->primary();
             $table->uuid('user_id')->nullable();
             $table->string('name', 50)->nullable();
+            $table->string('phone', 16)->nullable();
             $table->uuid('field_id');
             $table->float('price');
             $table->datetime('start_datetime');

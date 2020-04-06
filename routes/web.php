@@ -60,6 +60,7 @@ Route::group(['middleware' => 'can:isFieldOwner'], function () {
 
     // Booking
     Route::resource('booking', 'BookingController');
+    Route::match(['put', 'patch'], 'booking/{booking}/booking', 'BookingController@approve')->name('booking.approve');
 });
 
 

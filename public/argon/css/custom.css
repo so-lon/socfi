@@ -565,3 +565,18 @@
     margin: auto;
     font-weight: bold;
 }
+
+.form-control-flush
+{
+    padding: 0;
+
+    border-width: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+.form-control-flush:focus
+{
+    border-width: 0;
+    background-color: transparent;
+    box-shadow: none;
+}

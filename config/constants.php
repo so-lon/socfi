@@ -29,6 +29,14 @@ return [
             '7'  => '1',
         ]
     ],
+    'booking' => [
+        'state' => [
+            'pending_approval' => '0',
+            'ready'            => '1',
+            'finished'         => '2',
+            'cancelled'        => '3',
+        ]
+    ],
     'days_of_week' => [
         'everyday'  => '0:1:2:3:4:5:6',
         'monday'    => '0',
@@ -38,5 +46,9 @@ return [
         'friday'    => '4',
         'saturday'  => '5',
         'sunday'    => '6',
-    ]
+    ],
+    'second' => [
+        '1_day' => 86400,
+        '30_minutes' => 1800,
+    ],
 ];

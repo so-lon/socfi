@@ -4,10 +4,11 @@ namespace App\Models;
 
 use App\Models\Concerns\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Booking extends Model
 {
-    use UsesUuid;
+    use UsesUuid, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +16,7 @@ class Booking extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'stadium_id', 'start_datetime', 'duration', 'is_canceled'
+        'user_id', 'name', 'phone', 'field_id', 'price', 'start_datetime', 'duration', 'state'
     ];
 
     /**

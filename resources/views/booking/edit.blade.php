@@ -166,7 +166,7 @@
                                     </table>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('field.edit') }}</button>
+                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('common.update') }}</button>
                                 </div>
                             </div>
                         </form>

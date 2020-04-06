@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('promotion.add')])
+@extends('layouts.app', ['title' => __('promotion.edit')])
 
 @section('js')
     <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    @include('layouts.headers.header', ['title' => __('promotion.add')])
+    @include('layouts.headers.header', ['title' => __('promotion.edit')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -88,13 +88,13 @@
                                 <div class="input-daterange datepicker row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-usable_from">{{ __('promotion.usableFrom') }}</label>
+                                            <label class="form-control-label" for="input-usable_from">{{ __('promotion.usable_from') }}</label>
                                             <input class="form-control bg-white" id="input-usable_from" name="usable_from" readonly type="text" value="{{ $promotion->usable_from }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-usable_to">{{ __('promotion.usableTo') }}</label>
+                                            <label class="form-control-label" for="input-usable_to">{{ __('promotion.usable_to') }}</label>
                                             <input class="form-control bg-white" id="input-usable_to" name="usable_to" readonly type="text" value="{{ $promotion->usable_to }}">
                                         </div>
                                     </div>

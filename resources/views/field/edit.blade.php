@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('field.add')])
+@extends('layouts.app', ['title' => __('field.edit')])
 
 @section('js')
     <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
@@ -38,7 +38,7 @@
 @endsection
 
 @section('content')
-    @include('layouts.headers.header', ['title' => __('field.add')])
+    @include('layouts.headers.header', ['title' => __('field.edit')])
 
     <div class="container-fluid mt--7">
         <div class="row">
@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-opening-time">{{ __('field.openingTime') }}</label>
+                                            <label class="form-control-label" for="input-opening-time">{{ __('common.opening_time') }}</label>
                                             <input type="time" step="1800" id="opening-time" name="opening_time" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" value={{ $field->opening_time }}>
 
                                             @if ($errors->has('opening_time'))
@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-closing-time">{{ __('field.closingTime') }}</label>
+                                            <label class="form-control-label" for="input-closing-time">{{ __('common.closing_time') }}</label>
                                             <input type="time" step="1800" id="closing-time" name="closing_time" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" value={{ $field->closing_time }}>
 
                                             @if ($errors->has('closing_time'))
@@ -125,14 +125,14 @@
                                     <table class="table align-items-center table-flush">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th scope="col">{{ __('slot') }}</th>
-                                                <th scope="col">{{ __('monday') }}</th>
-                                                <th scope="col">{{ __('tuesday') }}</th>
-                                                <th scope="col">{{ __('wednesday') }}</th>
-                                                <th scope="col">{{ __('thursday') }}</th>
-                                                <th scope="col">{{ __('friday') }}</th>
-                                                <th scope="col">{{ __('saturday') }}</th>
-                                                <th scope="col">{{ __('sunday') }}</th>
+                                                <th scope="col">{{ __('field.slot') }}</th>
+                                                <th scope="col">{{ __('common.days_of_week.0') }}</th>
+                                                <th scope="col">{{ __('common.days_of_week.1') }}</th>
+                                                <th scope="col">{{ __('common.days_of_week.2') }}</th>
+                                                <th scope="col">{{ __('common.days_of_week.3') }}</th>
+                                                <th scope="col">{{ __('common.days_of_week.4') }}</th>
+                                                <th scope="col">{{ __('common.days_of_week.5') }}</th>
+                                                <th scope="col">{{ __('common.days_of_week.6') }}</th>
                                                 <th scope="col"></th>
                                             </tr>
                                         </thead>
@@ -166,7 +166,7 @@
                                     </table>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('field.edit') }}</button>
+                                    <button type="submit" class="btn btn-success mt-4 px-4">{{ __('common.update') }}</button>
                                 </div>
                             </div>
                         </form>

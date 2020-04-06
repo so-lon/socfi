@@ -21,7 +21,8 @@ class Promotion extends Model
     /**
      * Get the stadium that has the promotion.
      */
-    public function stadiums() {
+    public function stadiums()
+    {
         return $this->belongsToMany('App\Models\Stadium', 'stadium_promotion', 'promotion_id', 'stadium_id');
     }
 

@@ -36,6 +36,8 @@ return [
     'time'         => 'Thời gian',
     'opening_time' => 'Giờ mở cửa',
     'closing_time' => 'Giờ đóng cửa',
+    'date'         => 'Ngày',
+    'minute'       => 'Phút',
     'condition'    => 'Tình trạng',
     'days_of_week' => [
         '0:1:2:3:4:5:6' => 'Tất cả các ngày',

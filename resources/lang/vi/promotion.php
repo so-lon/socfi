@@ -19,4 +19,5 @@ return [
     'management'  => 'Quản lý mã giảm giá',
     'information' => 'Chi tiết',
     'create'      => 'Tạo mã mới',
+    'edit'        => 'Chỉnh sửa mã giảm giá',
 ];

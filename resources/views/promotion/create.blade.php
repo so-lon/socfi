@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('promotion.add')])
+@extends('layouts.app', ['title' => __('promotion.create')])
 
 @section('js')
     <script src="{{ asset('argon') }}/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    @include('layouts.headers.header', ['title' => __('promotion.add')])
+    @include('layouts.headers.header', ['title' => __('promotion.create')])
 
     <div class="container-fluid mt--7">
         <div class="row">

@@ -51,4 +51,21 @@ class Stadium extends Model
     {
         return $this->hasMany('App\Models\Field')->orderBy('name');
     }
+
+    /**
+     * Get the promotion belongs to stadium
+     */
+    public function promotions()
+    {
+        return $this->belongsToMany('App\Models\Promotion', 'stadium_promotion', 'stadium_id', 'promotion_id');
+    }
+
+
+    /**
+     * Get the price for stadium
+     */
+    public function prices()
+    {
+        return $this->hasMany('App\Models\PriceForFieldPerHour');
+    }
 }
