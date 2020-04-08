@@ -14,6 +14,9 @@ return [
         'closed'  => 'Đóng cửa',
         'deleted' => 'Đã xóa',
     ],
+    'name'    => 'Tên sân',
+    'address' => 'Địa chỉ',
+    'map'     => 'Bản đồ',
 
     // Titles
     'management'  => 'Quản lý sân bóng',

@@ -19,7 +19,7 @@
                                 </a>
                                 <a href="{{ route('news.edit', $news) }}" class="btn btn-sm btn-default">
                                     <i class="fas fa-pencil-alt"></i>
-                                    {{ __('news.edit') }}
+                                    {{ __('common.edit') }}
                                 </a>
                             </div>
                         </div>
