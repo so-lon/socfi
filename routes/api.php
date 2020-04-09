@@ -17,7 +17,10 @@ use Illuminate\Http\Request;
 
 // Route::resource('users', 'Api\UserController', ['except' => ['show']]);
 
+Route::post('register', 'Api\RegisterController@register');
+
 Route::post('login', 'Api\LoginController@login');
+Route::post('loginBySocial', 'Api\LoginController@loginBySocial');//login by social
 Route::post('register', 'Api\LoginController@register');
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('details', 'Api\LoginController@details');
@@ -32,6 +35,8 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::resource('stadium', 'Api\StadiumController');
 Route::resource('profile', 'Api\ProfileController', ['except' => ['create','destroy','index']]);
+
+
 
 // Route::get('stadium/{stadiumName}', 'Api\BookingController@index');
 
