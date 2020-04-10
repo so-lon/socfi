@@ -62,6 +62,7 @@ class LoginController extends Controller
     public function loginBySocial(Request $request)
     {
         $createdUser = User::firstOrCreate([
+            'username'    => request('username'),
             'name'        => request('name'),
             'email'       => request('email'),
             'role'        => constants('user.role.player'),
