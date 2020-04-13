@@ -71,7 +71,7 @@
             $('#field-slot').text(field + ' - ' + days_of_week[getDayOfWeek()] + ' - ' + slot);
             $('#slot').text(slot + ' - ' + getSlotEnd() + ' (' + duration + " {{ __('common.minute') }}" + ')');
             $('#price').text(getPrice());
-            $('#total').text(getPrice() - promotions[code]);
+            promotions[code] ? $('#total').text(getPrice() - promotions[code]) : $('#total').text(getPrice());
         }
 
         // Select field change
@@ -113,6 +113,8 @@
                     '</tr>'
                 );
                 $('#total').text(getPrice() - promotions[code]);
+            } else {
+                $('#total').text(getPrice());
             }
         });
     </script>
@@ -149,7 +151,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                                    <label class="form-control-label" for="input-name">{{ __('user.name') }}</label>
+                                                    <label class="form-control-label" for="input-name">{{ __('user.name') }} <span class="text-danger">*</span></label>
                                                     <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('user.name') }}" value="{{ old('name') }}" autofocus>
 
                                                     @if ($errors->has('name'))
@@ -161,7 +163,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}">
-                                                    <label class="form-control-label" for="input-email">{{ __('user.phone') }}</label>
+                                                    <label class="form-control-label" for="input-email">{{ __('user.phone') }} <span class="text-danger">*</span></label>
                                                     <input type="text" name="phone" id="input-phone" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="{{ __('user.phone') }}">
 
                                                     @if ($errors->has('phone'))
@@ -176,7 +178,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-control-label" for="input-sel-field">{{ __('field.name') }}</label>
+                                                    <label class="form-control-label" for="input-sel-field">{{ __('field.name') }} <span class="text-danger">*</span></label>
                                                     <select id="sel-field" name="field_id" class="form-control" onfocus="if (this.options.length > 8) this.size=5" onblur="this.size=1" onchange="this.size=1; this.blur();">
                                                         @foreach($fields as $field)
                                                             <option value="{{ $field->id }}">{{ $field->name }}</option>
@@ -186,7 +188,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group{{ $errors->has('code') ? ' has-danger' : '' }}">
-                                                    <label class="form-control-label" for="input-code">{{ __('promotion.code') }}</label>
+                                                    <label class="form-control-label" for="input-code">{{ __('promotion.code') }} <span class="text-danger">*</span></label>
                                                     <input type="text" name="code" id="input-code" class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}" placeholder="{{ __('promotion.code') }}" value="{{ old('promotion.code') }}" onkeyup="this.value = this.value.toUpperCase();">
 
                                                     @if ($errors->has('code'))
@@ -201,13 +203,13 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="form-control-label" for="input-date">{{ __('common.date') }}</label>
+                                                    <label class="form-control-label" for="input-date">{{ __('common.date') }} <span class="text-danger">*</span></label>
                                                     <input id="input-date" name="date" readonly class="form-control datepicker bg-white" type="text" value="{{ now()->format('d/m/Y') }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="form-control-label" for="input-sel-slot">{{ __('field.slot') }}</label>
+                                                    <label class="form-control-label" for="input-sel-slot">{{ __('field.slot') }} <span class="text-danger">*</span></label>
                                                     <select id="sel-slot" name="slot" class="form-control" onfocus="if (this.options.length > 8) this.size=5" onblur="this.size=1" onchange="this.size=1; this.blur();">
                                                         @foreach($slots as $slot)
                                                             <option value="{{ $slot }}">{{ $slot }}</option>
@@ -217,7 +219,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-control-label" for="input-duration">{{ __('booking.duration') }}</label>
+                                                    <label class="form-control-label" for="input-duration">{{ __('booking.duration') }} <span class="text-danger">*</span></label>
                                                     <input class="form-control" id="input-duration" type="number" name="duration" step="30" min="30" value="30" onkeydown="return false">
                                                 </div>
                                             </div>

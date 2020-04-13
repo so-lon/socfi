@@ -29,6 +29,13 @@ return [
             '7'  => '1',
         ]
     ],
+    'promotion' => [
+        'type' => [
+            'percent'    => '0',
+            'discount'   => '1',
+            'same_price' => '2',
+        ]
+    ],
     'booking' => [
         'state' => [
             'pending_approval' => '0',

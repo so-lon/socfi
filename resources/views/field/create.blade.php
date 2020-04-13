@@ -64,7 +64,7 @@
                             <div class="pl-lg-4">
                                 {{-- Type --}}
                                 <div class="form-group{{ $errors->has('type') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-name">{{ __('field.type') }}</label>
+                                    <label class="form-control-label" for="input-name">{{ __('field.type') }} <span class="text-danger">*</span></label>
                                     <div class="form-control-radio">
                                         @foreach(constants('field.type') as $type)
                                             <div class="custom-control custom-radio custom-control-inline">
@@ -84,7 +84,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="input-name">{{ __('field.name') }}</label>
+                                            <label class="form-control-label" for="input-name">{{ __('field.name') }} <span class="text-danger">*</span></label>
                                             <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('field.name') }}" value="{{ old('name') }}">
 
                                             @if ($errors->has('name'))
@@ -96,7 +96,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-opening-time">{{ __('common.opening_time') }}</label>
+                                            <label class="form-control-label" for="input-opening-time">{{ __('common.opening_time') }} <span class="text-danger">*</span></label>
                                             <input type="time" step="1800" id="opening-time" name="opening_time" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}">
 
                                             @if ($errors->has('opening_time'))
@@ -108,7 +108,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-closing-time">{{ __('common.closing_time') }}</label>
+                                            <label class="form-control-label" for="input-closing-time">{{ __('common.closing_time') }} <span class="text-danger">*</span></label>
                                             <input type="time" step="1800" id="closing-time" name="closing_time" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}">
 
                                             @if ($errors->has('closing_time'))

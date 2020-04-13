@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <a class="brand-logo-guest" href="{{ route('index') }}">
-                        <img src="{{ asset('argon') }}/img/brand/logo.png">
+                        <img src="{{ asset('argon') }}/img/brand/logo-dark.png">
                     </a>
                 </div>
                 <div class="row justify-content-center">

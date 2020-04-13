@@ -69,8 +69,8 @@
                                             <td>{{ $field->name }}</td>
                                             <td>{{ $field->opening_time }}</td>
                                             <td>{{ $field->closing_time }}</td>
-                                            <td>{{ $field->type }}</td>
-                                            <td>{{ $field->condition }}</td>
+                                            <td>{{ __('field.types.' . $field->type) }}</td>
+                                            <td>{{ __('field.conditions.' . $field->condition) }}</td>
                                             <td>{{ $field->updated_at->format('d/m/Y H:i') }}</td>
                                             <td class="text-right">
                                                 <form action="{{ route('field.destroy', $field) }}" method="post">

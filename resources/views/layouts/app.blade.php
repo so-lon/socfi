@@ -23,7 +23,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.js"></script>
 
         @yield('css')
-    {{-- <script type="text/javascript" src="{{ asset('ckeditor') }}/ckeditor.js"></script> --}}
 
     </head>
     <body class="{{ $class ?? '' }}">

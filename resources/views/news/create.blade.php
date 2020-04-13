@@ -47,7 +47,7 @@
                             <div class="pl-lg-4">
                                 {{-- Title --}}
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-title">{{ __('news.title') }}</label>
+                                    <label class="form-control-label" for="input-title">{{ __('news.title') }} <span class="text-danger">*</span></label>
                                     <input type="text" name="title" id="input-title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('news.title') }}" value="{{ old('news.title') }}" autofocus>
 
                                     @if ($errors->has('title'))
@@ -58,7 +58,7 @@
                                 </div>
                                 {{-- Content --}}
                                 <div class="form-group{{ $errors->has('content') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-content">{{ __('news.content') }}</label>
+                                    <label class="form-control-label" for="input-content">{{ __('news.content') }} <span class="text-danger">*</span></label>
                                     <div class="bg-white">
                                         {{-- Quill's toolbar --}}
                                         <div id="toolbar"></div>
